@@ -1,0 +1,3056 @@
+wandb: Appending key for api.wandb.ai to your netrc file: /jet/home/amartin1/.netrc
+Loading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]Loading checkpoint shards:  10%|█         | 1/10 [00:10<01:36, 10.67s/it]Loading checkpoint shards:  20%|██        | 2/10 [00:23<01:33, 11.74s/it]Loading checkpoint shards:  30%|███       | 3/10 [00:35<01:24, 12.06s/it]Loading checkpoint shards:  40%|████      | 4/10 [00:44<01:05, 10.84s/it]Loading checkpoint shards:  50%|█████     | 5/10 [00:55<00:53, 10.74s/it]Loading checkpoint shards:  60%|██████    | 6/10 [01:04<00:40, 10.19s/it]Loading checkpoint shards:  70%|███████   | 7/10 [01:12<00:28,  9.54s/it]Loading checkpoint shards:  80%|████████  | 8/10 [01:20<00:17,  8.99s/it]Loading checkpoint shards:  90%|█████████ | 9/10 [01:28<00:08,  8.67s/it]Loading checkpoint shards: 100%|██████████| 10/10 [01:38<00:00,  9.28s/it]Loading checkpoint shards: 100%|██████████| 10/10 [01:38<00:00,  9.89s/it]
+You are resizing the embedding layer without providing a `pad_to_multiple_of` parameter. This means that the new embeding dimension will be 151860. This might induce some performance reduction as *Tensor Cores* will not be available. For more details  about this, or help on choosing the correct value for resizing, refer to this guide: https://docs.nvidia.com/deeplearning/performance/dl-performance-matrix-multiplication/index.html#requirements-tc
+Test 1/436
+test_data/web_213f816e-8e80-4d13-970d-1347bbc7a2a8.png
+create a new project
+[0.906640625, 0.08958333333333333, 0.987890625, 0.13819444444444445]
+Response: (0.97, 0.05)
+Incorrect
+
+Test 2/436
+test_data/web_213f816e-8e80-4d13-970d-1347bbc7a2a8.png
+view my account
+[0.937890625, 0.009722222222222222, 0.98125, 0.05694444444444444]
+Response: (0.04, 0.04)
+Incorrect
+
+Test 3/436
+test_data/web_e40f1b3f-0f26-4313-a6a2-d79e1047951b.png
+search in gitlab
+[0.07578125, 0.010416666666666666, 0.327734375, 0.05625]
+Response: (0.07, 0.02)
+Incorrect
+
+Test 4/436
+test_data/web_e40f1b3f-0f26-4313-a6a2-d79e1047951b.png
+add a new one
+[0.684765625, 0.005555555555555556, 0.728515625, 0.059027777777777776]
+Response: (0.00, 0.00)
+Incorrect
+
+Test 5/436
+test_data/web_fd8d71f6-4229-4458-a77e-7d8a6347c8e9.png
+go to personal homepage
+[0.7984375, 0.06666666666666667, 0.986328125, 0.19652777777777777]
+Response: (0.04, 0.46)
+Incorrect
+
+Test 6/436
+test_data/web_fd8d71f6-4229-4458-a77e-7d8a6347c8e9.png
+sign out
+[0.798046875, 0.3416666666666667, 0.98671875, 0.40347222222222223]
+Response: (0.71, 0.21)
+Incorrect
+
+Test 7/436
+test_data/web_4e1d5837-4731-43f3-8101-52375498c4ad.png
+switch to explore projects
+[0.166796875, 0.1625, 0.225390625, 0.22916666666666666]
+Response: (0.05, 0.04)
+Incorrect
+
+Test 8/436
+test_data/web_4e1d5837-4731-43f3-8101-52375498c4ad.png
+star the project with 56 stars
+[0.625390625, 0.24305555555555555, 0.670703125, 0.28888888888888886]
+Response: (0.04, 0.19)
+Incorrect
+
+Test 9/436
+test_data/web_4e1d5837-4731-43f3-8101-52375498c4ad.png
+fork the a11y project
+[0.665625, 0.4708333333333333, 0.698046875, 0.5118055555555555]
+Response: (0.05, 0.76)
+Incorrect
+
+Test 10/436
+test_data/web_bcce7aec-b36a-42c5-8beb-ead23f5ada2c.png
+view issues i've created
+[0.076953125, 0.16111111111111112, 0.5765625, 0.20833333333333334]
+Response: (0.10, 0.10)
+Incorrect
+
+Test 11/436
+test_data/web_bcce7aec-b36a-42c5-8beb-ead23f5ada2c.png
+goto homepage
+[0.0, 0.0, 0.041796875, 0.06527777777777778]
+Response: (0.00, 0.00)
+Correct
+
+Test 12/436
+test_data/web_7a5f6ad5-ec34-4693-ac45-136547757893.png
+set reminder
+[0.735546875, 0.31319444444444444, 0.78203125, 0.3625]
+Response: (0.04, 0.01)
+Incorrect
+
+Test 13/436
+test_data/web_7a5f6ad5-ec34-4693-ac45-136547757893.png
+clone this project
+[0.91015625, 0.6659722222222222, 0.975390625, 0.7145833333333333]
+Response: (0.04, 0.10)
+Incorrect
+
+Test 14/436
+test_data/web_e0f18fd6-2a59-4fab-89f0-864c70bba241.png
+create a new issus
+[0.915625, 0.14166666666666666, 0.98984375, 0.19027777777777777]
+Response: (0.97, 0.07)
+Incorrect
+
+Test 15/436
+test_data/web_e0f18fd6-2a59-4fab-89f0-864c70bba241.png
+download
+[0.78828125, 0.14027777777777778, 0.831640625, 0.18680555555555556]
+Response: (0.94, 0.03)
+Incorrect
+
+Test 16/436
+test_data/web_e0f18fd6-2a59-4fab-89f0-864c70bba241.png
+search or filter results
+[0.264453125, 0.22152777777777777, 0.84296875, 0.2673611111111111]
+Response: (0.21, 0.05)
+Incorrect
+
+Test 17/436
+test_data/web_6c677961-e540-4cc5-b725-5e301019a9f9.png
+choose type of issue
+[0.209765625, 0.42083333333333334, 0.40859375, 0.47430555555555554]
+Response: (0.20, 0.46)
+Incorrect
+
+Test 18/436
+test_data/web_6c677961-e540-4cc5-b725-5e301019a9f9.png
+bold lettering
+[0.61171875, 0.5381944444444444, 0.640625, 0.5854166666666667]
+Response: (0.79, 0.02)
+Incorrect
+
+Test 19/436
+test_data/web_6c677961-e540-4cc5-b725-5e301019a9f9.png
+full screen display
+[0.948828125, 0.5402777777777777, 0.977734375, 0.5861111111111111]
+Response: (0.97, 0.05)
+Incorrect
+
+Test 20/436
+test_data/web_6c677961-e540-4cc5-b725-5e301019a9f9.png
+insert tables
+[0.89140625, 0.5381944444444444, 0.920703125, 0.5854166666666667]
+Response: (0.00, 0.00)
+Incorrect
+
+Test 21/436
+test_data/web_6c677961-e540-4cc5-b725-5e301019a9f9.png
+write a description
+[0.212109375, 0.5923611111111111, 0.987890625, 0.7881944444444444]
+Response: (0.27, 0.62)
+Correct
+
+Test 22/436
+test_data/web_9443f61f-7d14-4e60-8297-29df73b7cbdd.png
+sort by created date
+[0.94921875, 0.22013888888888888, 0.975390625, 0.2673611111111111]
+Response: (0.71, 0.19)
+Incorrect
+
+Test 23/436
+test_data/web_9443f61f-7d14-4e60-8297-29df73b7cbdd.png
+view the debug build time
+[0.212109375, 0.38263888888888886, 0.986328125, 0.475]
+Response: (0.28, 0.59)
+Incorrect
+
+Test 24/436
+test_data/web_af76d21a-0a23-49c3-bc5b-842073bf28af.png
+search my projects
+[0.23828125, 0.07569444444444444, 0.4765625, 0.12291666666666666]
+Response: (0.27, 0.08)
+Correct
+
+Test 25/436
+test_data/web_af76d21a-0a23-49c3-bc5b-842073bf28af.png
+switch to activity
+[0.04609375, 0.3486111111111111, 0.230859375, 0.40347222222222223]
+Response: (0.04, 0.31)
+Incorrect
+
+Test 26/436
+test_data/web_6b685114-53fc-40a1-ac42-3b8fbdd27fdd.png
+delete the byte blaze assignee
+[0.30546875, 0.25833333333333336, 0.33046875, 0.29375]
+Response: (0.27, 0.27)
+Incorrect
+
+Test 27/436
+test_data/web_6b685114-53fc-40a1-ac42-3b8fbdd27fdd.png
+subscribe to rss feed
+[0.6890625, 0.17083333333333334, 0.836328125, 0.21666666666666667]
+Response: (0.95, 0.17)
+Incorrect
+
+Test 28/436
+test_data/web_b97bb6a3-999c-463a-b957-5584c14c8395.png
+thumb up
+[0.21171875, 0.4861111111111111, 0.253515625, 0.5326388888888889]
+Response: (0.94, 0.04)
+Incorrect
+
+Test 29/436
+test_data/web_b97bb6a3-999c-463a-b957-5584c14c8395.png
+thumb down
+[0.25859375, 0.4875, 0.301171875, 0.5319444444444444]
+Response: (0.95, 0.03)
+Incorrect
+
+Test 30/436
+test_data/web_b97bb6a3-999c-463a-b957-5584c14c8395.png
+reply to emoticon
+[0.306640625, 0.4861111111111111, 0.3328125, 0.5333333333333333]
+Response: (0.10, 0.05)
+Incorrect
+
+Test 31/436
+test_data/web_b97bb6a3-999c-463a-b957-5584c14c8395.png
+more information
+[0.732421875, 0.14166666666666666, 0.76328125, 0.19583333333333333]
+Response: (0.04, 0.02)
+Incorrect
+
+Test 32/436
+test_data/web_5a35d9c2-2c2d-4a49-ad0a-1408d9cac78e.png
+close this issue
+[0.312890625, 0.7909722222222222, 0.389453125, 0.8381944444444445]
+Response: (0.95, 0.97)
+Incorrect
+
+Test 33/436
+test_data/web_5a35d9c2-2c2d-4a49-ad0a-1408d9cac78e.png
+add a todo
+[0.7890625, 0.08194444444444444, 0.860546875, 0.11388888888888889]
+Response: (0.95, 0.04)
+Incorrect
+
+Test 34/436
+test_data/web_e640514e-5946-4808-922f-f50c51b0da78.png
+edit my profile
+[0.926171875, 0.08611111111111111, 0.951953125, 0.13194444444444445]
+Response: (0.78, 0.03)
+Incorrect
+
+Test 35/436
+test_data/web_e640514e-5946-4808-922f-f50c51b0da78.png
+check followers
+[0.41875, 0.5277777777777778, 0.5046875, 0.5777777777777777]
+Response: (0.72, 0.89)
+Incorrect
+
+Test 36/436
+test_data/web_e640514e-5946-4808-922f-f50c51b0da78.png
+switch to groups view
+[0.272265625, 0.6694444444444444, 0.32734375, 0.7333333333333333]
+Response: (0.03, 0.86)
+Incorrect
+
+Test 37/436
+test_data/web_8d623438-5ac7-44f8-ab67-e07309a92f4a.png
+view all personal projects
+[0.940234375, 0.08263888888888889, 0.99453125, 0.13680555555555557]
+Response: (0.50, 0.08)
+Incorrect
+
+Test 38/436
+test_data/web_8d623438-5ac7-44f8-ab67-e07309a92f4a.png
+view the chatgpt_plugin project
+[0.51015625, 0.4513888888888889, 1.0, 0.5541666666666667]
+Response: (0.65, 0.56)
+Incorrect
+
+Test 39/436
+test_data/web_c8e2a933-b6e5-4046-a360-5dbd54dc9753.png
+close the window
+[0.963671875, 0.08541666666666667, 0.99140625, 0.13541666666666666]
+Response: (0.00, 0.00)
+Incorrect
+
+Test 40/436
+test_data/web_0492a7c3-3b0d-4f62-8c0d-939ad51aa616.png
+visit docs.gitlab.com
+[0.041796875, 0.6, 0.15546875, 0.6395833333333333]
+Response: (0.04, 0.61)
+Incorrect
+
+Test 41/436
+test_data/web_0492a7c3-3b0d-4f62-8c0d-939ad51aa616.png
+check the docs of how to use gitlab
+[0.012109375, 0.8555555555555555, 0.3125, 0.9409722222222222]
+Response: (0.05, 0.56)
+Incorrect
+
+Test 42/436
+test_data/web_1cc05cca-502a-41c3-aebc-b901f85a40fd.png
+why gitlab
+[0.056640625, 0.014583333333333334, 0.1515625, 0.12222222222222222]
+Response: (0.10, 0.07)
+Correct
+
+Test 43/436
+test_data/web_1cc05cca-502a-41c3-aebc-b901f85a40fd.png
+check pricing
+[0.30390625, 0.014583333333333334, 0.368359375, 0.12361111111111112]
+Response: (0.94, 0.04)
+Incorrect
+
+Test 44/436
+test_data/web_1cc05cca-502a-41c3-aebc-b901f85a40fd.png
+sign in
+[0.921875, 0.025, 0.987109375, 0.11736111111111111]
+Response: (0.95, 0.07)
+Correct
+
+Test 45/436
+test_data/web_1cc05cca-502a-41c3-aebc-b901f85a40fd.png
+search
+[0.619140625, 0.013194444444444444, 0.647265625, 0.12638888888888888]
+Response: (0.95, 0.04)
+Incorrect
+
+Test 46/436
+test_data/web_200e430d-ec76-48af-987c-ad658b74ab33.png
+view solution of ai
+[0.23359375, 0.19166666666666668, 0.452734375, 0.25277777777777777]
+Response: (0.24, 0.67)
+Incorrect
+
+Test 47/436
+test_data/web_200e430d-ec76-48af-987c-ad658b74ab33.png
+view all solutions
+[0.23671875, 0.6645833333333333, 0.4, 0.7347222222222223]
+Response: (0.32, 0.72)
+Correct
+
+Test 48/436
+test_data/web_201fbfed-1dd7-4532-b49a-b465ef775c8b.png
+resources
+[0.36875, 0.018055555555555554, 0.457421875, 0.11041666666666666]
+Response: (0.37, 0.07)
+Correct
+
+Test 49/436
+test_data/web_201fbfed-1dd7-4532-b49a-b465ef775c8b.png
+buy gitlab premium
+[0.38125, 0.8215277777777777, 0.547265625, 0.8868055555555555]
+Response: (0.50, 0.89)
+Incorrect
+
+Test 50/436
+test_data/web_a905f71b-cfe3-4add-b37e-fa2a96067b8c.png
+get free trial
+[0.806640625, 0.02361111111111111, 0.911328125, 0.11666666666666667]
+Response: (0.87, 0.05)
+Correct
+
+Test 51/436
+test_data/web_a905f71b-cfe3-4add-b37e-fa2a96067b8c.png
+contact sales
+[0.510546875, 0.68125, 0.66796875, 0.7645833333333333]
+Response: (0.50, 0.82)
+Incorrect
+
+Test 52/436
+test_data/web_32fce6b7-8437-4877-8436-f67c99d82f81.png
+view supported cloud
+[0.75546875, 0.4131944444444444, 0.944140625, 0.4777777777777778]
+Response: (0.89, 0.41)
+Incorrect
+
+Test 53/436
+test_data/web_32fce6b7-8437-4877-8436-f67c99d82f81.png
+contact gitlab
+[0.541796875, 0.10277777777777777, 0.622265625, 0.18055555555555555]
+Response: (0.55, 0.17)
+Correct
+
+Test 54/436
+test_data/web_37acd27f-731c-4292-8caf-159b9be41189.png
+install for ubuntu
+[0.03359375, 0.2125, 0.216796875, 0.6930555555555555]
+Response: (0.27, 0.59)
+Incorrect
+
+Test 55/436
+test_data/web_37acd27f-731c-4292-8caf-159b9be41189.png
+have installed
+[0.75703125, 0.5590277777777778, 0.88671875, 0.6263888888888889]
+Response: (0.70, 0.72)
+Incorrect
+
+Test 56/436
+test_data/web_90c0cf0e-3885-46d1-a1fd-2b29645398d3.png
+view efficiency
+[0.65078125, 0.16875, 0.944140625, 0.7236111111111111]
+Response: (0.02, 0.57)
+Incorrect
+
+Test 57/436
+test_data/web_90c0cf0e-3885-46d1-a1fd-2b29645398d3.png
+transparency
+[0.6515625, 0.7465277777777778, 0.94375, 1.0]
+Response: (0.69, 0.94)
+Correct
+
+Test 58/436
+test_data/web_fa9667b8-9bc1-4c58-b4ca-bd2d96780473.png
+get free trial
+[0.042578125, 0.6513888888888889, 0.158984375, 0.7125]
+Response: (0.19, 0.89)
+Incorrect
+
+Test 59/436
+test_data/web_94a52247-8dd4-4f19-82ea-19185a9b2649.png
+check api security
+[0.271875, 0.7152777777777778, 0.38125, 0.7652777777777777]
+Response: (0.32, 0.79)
+Incorrect
+
+Test 60/436
+test_data/web_94a52247-8dd4-4f19-82ea-19185a9b2649.png
+switch to govern
+[0.86015625, 0.15208333333333332, 0.938671875, 0.26319444444444445]
+Response: (0.92, 0.19)
+Correct
+
+Test 61/436
+test_data/web_94a52247-8dd4-4f19-82ea-19185a9b2649.png
+switch to create
+[0.1734375, 0.14791666666666667, 0.253515625, 0.2638888888888889]
+Response: (0.23, 0.24)
+Correct
+
+Test 62/436
+test_data/web_d48576d2-c431-4030-9cc0-c811c752c3a8.png
+choose use-case
+[0.042578125, 0.7201388888888889, 0.25234375, 0.7875]
+Response: (0.06, 0.50)
+Incorrect
+
+Test 63/436
+test_data/web_d48576d2-c431-4030-9cc0-c811c752c3a8.png
+reset all
+[0.7359375, 0.8652777777777778, 0.826171875, 0.9305555555555556]
+Response: (0.85, 0.95)
+Incorrect
+
+Test 64/436
+test_data/web_a0cf11b1-c931-41d7-8649-39986460da5f.png
+create a blank project
+[0.071484375, 0.2125, 0.493359375, 0.5479166666666667]
+Response: (0.32, 0.28)
+Correct
+
+Test 65/436
+test_data/web_eab83369-92a1-4819-ae45-eb2c0ab5b131.png
+switch to projects
+[0.04375, 0.11805555555555555, 0.23125, 0.1673611111111111]
+Response: (0.07, 0.11)
+Incorrect
+
+Test 66/436
+test_data/web_eab83369-92a1-4819-ae45-eb2c0ab5b131.png
+explore milestones
+[0.043359375, 0.2590277777777778, 0.23046875, 0.30625]
+Response: (0.11, 0.25)
+Incorrect
+
+Test 67/436
+test_data/web_463c0536-492e-475c-930d-d95ee476ec3c.png
+has question about visibility level
+[0.333203125, 0.39791666666666664, 0.359375, 0.44166666666666665]
+Response: (0.32, 0.87)
+Incorrect
+
+Test 68/436
+test_data/web_463c0536-492e-475c-930d-d95ee476ec3c.png
+enable static application security testing
+[0.25859375, 0.7680555555555556, 0.27734375, 0.8034722222222223]
+Response: (0.46, 0.83)
+Incorrect
+
+Test 69/436
+test_data/web_6d17bf02-a44b-4af7-9791-a4a59881ea3c.png
+sort by updated date
+[0.94921875, 0.2513888888888889, 0.9734375, 0.2972222222222222]
+Response: (0.95, 0.15)
+Incorrect
+
+Test 70/436
+test_data/web_6d17bf02-a44b-4af7-9791-a4a59881ea3c.png
+check the test issue
+[0.0, 0.4111111111111111, 0.999609375, 0.5006944444444444]
+Response: (0.00, 0.00)
+Incorrect
+
+Test 71/436
+test_data/web_3fed2169-3c3d-43e7-baaa-3bf0e0c7134c.png
+create merge request
+[0.605859375, 0.5909722222222222, 0.761328125, 0.6354166666666666]
+Response: (0.69, 0.66)
+Incorrect
+
+Test 72/436
+test_data/web_3fed2169-3c3d-43e7-baaa-3bf0e0c7134c.png
+edit this issue
+[0.73359375, 0.22916666666666666, 0.7609375, 0.27569444444444446]
+Response: (0.88, 0.04)
+Incorrect
+
+Test 73/436
+test_data/web_3fed2169-3c3d-43e7-baaa-3bf0e0c7134c.png
+more information
+[0.734375, 0.1423611111111111, 0.76015625, 0.18888888888888888]
+Response: (0.94, 0.03)
+Incorrect
+
+Test 74/436
+test_data/web_6466b8cc-deea-451a-8019-d0684052d771.png
+enable notifications
+[0.9421875, 0.7729166666666667, 0.9859375, 0.8159722222222222]
+Response: (0.69, 0.96)
+Incorrect
+
+Test 75/436
+test_data/web_6466b8cc-deea-451a-8019-d0684052d771.png
+comment to administrator
+[0.676171875, 0.7256944444444444, 0.70390625, 0.7625]
+Response: (0.29, 0.94)
+Incorrect
+
+Test 76/436
+test_data/web_68bcaf82-c297-4f24-af8e-77e4db9123ce.png
+enter time spent
+[0.311328125, 0.40555555555555556, 0.43671875, 0.45]
+Response: (0.35, 0.51)
+Incorrect
+
+Test 77/436
+test_data/web_68bcaf82-c297-4f24-af8e-77e4db9123ce.png
+cancel
+[0.5828125, 0.6597222222222222, 0.63828125, 0.7069444444444445]
+Response: (0.71, 0.62)
+Incorrect
+
+Test 78/436
+test_data/web_4befbc37-411b-4621-8a3c-c1d95676efa1.png
+download the project
+[0.860546875, 0.4576388888888889, 0.90390625, 0.5034722222222222]
+Response: (0.97, 0.04)
+Incorrect
+
+Test 79/436
+test_data/web_4befbc37-411b-4621-8a3c-c1d95676efa1.png
+unstar the project
+[0.7921875, 0.10416666666666667, 0.883984375, 0.15138888888888888]
+Response: (0.72, 0.12)
+Incorrect
+
+Test 80/436
+test_data/web_4befbc37-411b-4621-8a3c-c1d95676efa1.png
+add a new file
+[0.402734375, 0.45902777777777776, 0.4453125, 0.5048611111111111]
+Response: (0.94, 0.95)
+Incorrect
+
+Test 81/436
+test_data/web_4befbc37-411b-4621-8a3c-c1d95676efa1.png
+jump to data folder
+[0.22578125, 0.7673611111111112, 0.973046875, 0.8270833333333333]
+Response: (0.01, 0.04)
+Incorrect
+
+Test 82/436
+test_data/web_586be1bf-6fab-43bf-adad-640eaab4a0df.png
+copy the ssh link
+[0.938671875, 0.44722222222222224, 0.96328125, 0.49375]
+Response: (0.95, 0.97)
+Incorrect
+
+Test 83/436
+test_data/web_586be1bf-6fab-43bf-adad-640eaab4a0df.png
+copy the http link
+[0.9375, 0.5451388888888888, 0.96328125, 0.59375]
+Response: (0.78, 0.97)
+Incorrect
+
+Test 84/436
+test_data/web_3eca74aa-1d45-45a3-ae2b-694ae83b0068.png
+download the file
+[0.948046875, 0.36736111111111114, 0.973046875, 0.4111111111111111]
+Response: (0.96, 0.04)
+Incorrect
+
+Test 85/436
+test_data/web_3eca74aa-1d45-45a3-ae2b-694ae83b0068.png
+open the file in web ide
+[0.6484375, 0.36527777777777776, 0.778125, 0.4152777777777778]
+Response: (0.95, 0.37)
+Incorrect
+
+Test 86/436
+test_data/web_48737870-2f75-4199-a2d0-176d04543b2b.png
+more information of n-lab project
+[0.948046875, 0.2375, 0.975390625, 0.29097222222222224]
+Response: (0.10, 0.27)
+Incorrect
+
+Test 87/436
+test_data/web_48737870-2f75-4199-a2d0-176d04543b2b.png
+check the owner of coding_friends
+[0.1609375, 0.6506944444444445, 0.22734375, 0.6944444444444444]
+Response: (0.11, 0.68)
+Incorrect
+
+Test 88/436
+test_data/web_6b9059c2-656d-4a37-b585-9df4ef2f0c7f.png
+star the chatgpt project
+[0.730859375, 0.34375, 0.77578125, 0.39861111111111114]
+Response: (0.71, 0.41)
+Incorrect
+
+Test 89/436
+test_data/web_6b9059c2-656d-4a37-b585-9df4ef2f0c7f.png
+star the metaseq project
+[0.732421875, 0.47638888888888886, 0.77578125, 0.5340277777777778]
+Response: (0.85, 0.52)
+Incorrect
+
+Test 90/436
+test_data/web_7d1b09cc-3602-4670-9fb2-d81afb5ec381.png
+search
+[0.8078125, 0.09861111111111111, 0.84375, 0.16111111111111112]
+Response: (0.04, 0.01)
+Incorrect
+
+Test 91/436
+test_data/web_7d1b09cc-3602-4670-9fb2-d81afb5ec381.png
+check notification
+[0.848828125, 0.09791666666666667, 0.88359375, 0.16319444444444445]
+Response: (0.04, 0.76)
+Incorrect
+
+Test 92/436
+test_data/web_7d1b09cc-3602-4670-9fb2-d81afb5ec381.png
+has question about scope
+[0.246875, 0.21875, 0.28359375, 0.28402777777777777]
+Response: (0.06, 0.31)
+Incorrect
+
+Test 93/436
+test_data/web_d0e6082c-90d2-4637-ab9f-65b768240848.png
+view orders
+[0.06796875, 0.1284722222222222, 0.277734375, 0.18819444444444444]
+Response: (0.05, 0.22)
+Incorrect
+
+Test 94/436
+test_data/web_d0e6082c-90d2-4637-ab9f-65b768240848.png
+close the sales
+[0.23125, 0.01875, 0.262109375, 0.07083333333333333]
+Response: (0.97, 0.04)
+Incorrect
+
+Test 95/436
+test_data/web_921e2d81-b8a5-425a-81e6-476cd16f9bdb.png
+view detail of products
+[0.0671875, 0.12916666666666668, 0.276171875, 0.18888888888888888]
+Response: (0.05, 0.46)
+Incorrect
+
+Test 96/436
+test_data/web_921e2d81-b8a5-425a-81e6-476cd16f9bdb.png
+switch to customers
+[0.000390625, 0.3625, 0.068359375, 0.4486111111111111]
+Response: (0.98, 0.05)
+Incorrect
+
+Test 97/436
+test_data/web_d2dd06b0-8826-4dd6-a3b7-0d88c123a04b.png
+search by keyword
+[0.08984375, 0.3458333333333333, 0.401953125, 0.3951388888888889]
+Response: (0.11, 0.36)
+Correct
+
+Test 98/436
+test_data/web_d2dd06b0-8826-4dd6-a3b7-0d88c123a04b.png
+adjusting the number of displays per page
+[0.655859375, 0.4215277777777778, 0.725390625, 0.4708333333333333]
+Response: (0.72, 0.57)
+Incorrect
+
+Test 99/436
+test_data/web_ddeabd10-ccfc-4881-b301-9364d7a04279.png
+go back
+[0.891015625, 0.22291666666666668, 0.956640625, 0.2798611111111111]
+Response: (0.95, 0.04)
+Incorrect
+
+Test 100/436
+test_data/web_ddeabd10-ccfc-4881-b301-9364d7a04279.png
+go to my account
+[0.894921875, 0.10347222222222222, 0.971484375, 0.15833333333333333]
+Response: (0.97, 0.02)
+Incorrect
+
+Test 101/436
+test_data/web_de7dcaf3-f2e3-49f4-84fd-36088f39238c.png
+select the div garg
+[0.09140625, 0.6173611111111111, 0.133203125, 0.6743055555555556]
+Response: (0.23, 0.62)
+Incorrect
+
+Test 102/436
+test_data/web_de7dcaf3-f2e3-49f4-84fd-36088f39238c.png
+use filters
+[0.56796875, 0.34652777777777777, 0.646875, 0.39375]
+Response: (0.95, 0.02)
+Incorrect
+
+Test 103/436
+test_data/web_2b491da3-f798-4866-b002-a25ab7d15263.png
+view privacy policy
+[0.71640625, 0.6041666666666666, 0.798046875, 0.6527777777777778]
+Response: (0.92, 0.02)
+Incorrect
+
+Test 104/436
+test_data/web_2b491da3-f798-4866-b002-a25ab7d15263.png
+ticked items
+[0.090234375, 0.34097222222222223, 0.1328125, 0.4444444444444444]
+Response: (0.96, 0.51)
+Incorrect
+
+Test 105/436
+test_data/web_d1cc72e3-da3f-4d48-bab4-a6aa0bc5a807.png
+more partners
+[0.15, 0.7131944444444445, 0.251953125, 0.7666666666666667]
+Response: (0.08, 0.98)
+Incorrect
+
+Test 106/436
+test_data/web_d1cc72e3-da3f-4d48-bab4-a6aa0bc5a807.png
+visit magento marketplaces
+[0.695703125, 0.6555555555555556, 0.8671875, 0.7041666666666667]
+Response: (0.75, 0.68)
+Correct
+
+Test 107/436
+test_data/web_10e24c0f-e9af-4542-b074-5a14a7645717.png
+view all users
+[0.290234375, 0.18888888888888888, 0.486328125, 0.25277777777777777]
+Response: (0.38, 0.21)
+Correct
+
+Test 108/436
+test_data/web_10e24c0f-e9af-4542-b074-5a14a7645717.png
+close the sales
+[0.433203125, 0.002777777777777778, 0.480859375, 0.06388888888888888]
+Response: (0.06, 0.18)
+Incorrect
+
+Test 109/436
+test_data/web_dd867d69-511e-4ab2-834e-2e111c7b3198.png
+reset fliter
+[0.15703125, 0.34444444444444444, 0.230078125, 0.39652777777777776]
+Response: (0.20, 0.41)
+Incorrect
+
+Test 110/436
+test_data/web_dd867d69-511e-4ab2-834e-2e111c7b3198.png
+go to next page
+[0.940625, 0.40625, 0.97578125, 0.45555555555555555]
+Response: (0.94, 0.50)
+Incorrect
+
+Test 111/436
+test_data/web_dd867d69-511e-4ab2-834e-2e111c7b3198.png
+enter search query
+[0.162890625, 0.5986111111111111, 0.30078125, 0.6381944444444444]
+Response: (0.15, 0.48)
+Incorrect
+
+Test 112/436
+test_data/web_d3f48983-3396-4249-990c-d1214fbed944.png
+add the first product into cart
+[0.012890625, 0.8236111111111111, 0.103125, 0.8736111111111111]
+Response: (0.06, 0.77)
+Incorrect
+
+Test 113/436
+test_data/web_d3f48983-3396-4249-990c-d1214fbed944.png
+favorite the blueberry drink
+[0.303515625, 0.8548611111111111, 0.32421875, 0.8993055555555556]
+Response: (0.29, 0.66)
+Incorrect
+
+Test 114/436
+test_data/web_55e57d6e-0cb0-4024-b89f-89a3c594f20e.png
+go to beauty & personal care
+[0.000390625, 0.1763888888888889, 0.158984375, 0.24861111111111112]
+Response: (0.09, 0.26)
+Incorrect
+
+Test 115/436
+test_data/web_55e57d6e-0cb0-4024-b89f-89a3c594f20e.png
+view clothing, shoes
+[0.29921875, 0.17777777777777778, 0.46484375, 0.25]
+Response: (0.21, 0.76)
+Incorrect
+
+Test 116/436
+test_data/web_55e57d6e-0cb0-4024-b89f-89a3c594f20e.png
+view vedio games
+[0.5625, 0.2513888888888889, 0.659765625, 0.3229166666666667]
+Response: (0.68, 0.27)
+Incorrect
+
+Test 117/436
+test_data/web_a8de66ff-c058-4617-9484-82662d95fbc1.png
+check shopping cart
+[0.9359375, 0.09097222222222222, 0.99140625, 0.14583333333333334]
+Response: (0.94, 0.09)
+Incorrect
+
+Test 118/436
+test_data/web_a8de66ff-c058-4617-9484-82662d95fbc1.png
+check my account
+[0.59609375, 0.0020833333333333333, 0.668359375, 0.05625]
+Response: (0.79, 0.11)
+Incorrect
+
+Test 119/436
+test_data/web_f4ee1ae3-a244-40f8-90cb-e68411f00636.png
+checkout
+[0.71328125, 0.26944444444444443, 0.971484375, 0.3416666666666667]
+Response: (0.92, 0.12)
+Incorrect
+
+Test 120/436
+test_data/web_f4ee1ae3-a244-40f8-90cb-e68411f00636.png
+close
+[0.965234375, 0.15416666666666667, 0.99296875, 0.1986111111111111]
+Response: (0.95, 0.02)
+Incorrect
+
+Test 121/436
+test_data/web_f4ee1ae3-a244-40f8-90cb-e68411f00636.png
+delete carnation breakfast essentials nutritional drink
+[0.95625, 0.4861111111111111, 0.985546875, 0.55]
+Response: (0.70, 0.59)
+Incorrect
+
+Test 122/436
+test_data/web_f4ee1ae3-a244-40f8-90cb-e68411f00636.png
+delete pre-baked gingerbread house kit value pack
+[0.958203125, 0.7, 0.9859375, 0.7576388888888889]
+Response: (0.21, 0.67)
+Incorrect
+
+Test 123/436
+test_data/web_f4ee1ae3-a244-40f8-90cb-e68411f00636.png
+adjust the quantity with 5
+[0.7953125, 0.4909722222222222, 0.83125, 0.5375]
+Response: (0.65, 0.97)
+Incorrect
+
+Test 124/436
+test_data/web_d00882a8-4d93-4116-91ad-e8bb8fdd8ff2.png
+change password
+[0.24140625, 0.6270833333333333, 0.3703125, 0.6819444444444445]
+Response: (0.42, 0.75)
+Incorrect
+
+Test 125/436
+test_data/web_d00882a8-4d93-4116-91ad-e8bb8fdd8ff2.png
+check my downloadable products
+[0.01484375, 0.46944444444444444, 0.2109375, 0.5194444444444445]
+Response: (0.11, 0.51)
+Correct
+
+Test 126/436
+test_data/web_9043e264-b5ec-4da5-ae7a-b19cfc1d178b.png
+go to next page
+[0.637890625, 0.475, 0.66953125, 0.525]
+Response: (0.97, 0.86)
+Incorrect
+
+Test 127/436
+test_data/web_9043e264-b5ec-4da5-ae7a-b19cfc1d178b.png
+adjust the number show per page
+[0.88515625, 0.475, 0.93203125, 0.5215277777777778]
+Response: (0.94, 0.79)
+Incorrect
+
+Test 128/436
+test_data/web_f80a102f-7b1a-40f4-ad52-193e52d0cda0.png
+add the rh interiors weathered wood bundle table lamp
+[0.434375, 0.8319444444444445, 0.521875, 0.8784722222222222]
+Response: (0.50, 0.66)
+Incorrect
+
+Test 129/436
+test_data/web_f80a102f-7b1a-40f4-ad52-193e52d0cda0.png
+comment to elmwood inn fine tea
+[0.613671875, 0.7923611111111111, 0.7921875, 0.8493055555555555]
+Response: (0.79, 0.65)
+Incorrect
+
+Test 130/436
+test_data/web_277226da-aa42-470f-8949-08a5c050d8d1.png
+select skin care
+[0.005859375, 0.30277777777777776, 0.187109375, 0.3541666666666667]
+Response: (0.09, 0.30)
+Incorrect
+
+Test 131/436
+test_data/web_589e44b7-401b-45f7-a223-b93ac59c5506.png
+view xbox one
+[0.5625, 0.325, 0.74375, 0.3784722222222222]
+Response: (0.72, 0.42)
+Incorrect
+
+Test 132/436
+test_data/web_589e44b7-401b-45f7-a223-b93ac59c5506.png
+view ps4
+[0.562109375, 0.47638888888888886, 0.743359375, 0.525]
+Response: (0.69, 0.57)
+Incorrect
+
+Test 133/436
+test_data/web_db995728-d16b-46cb-9621-22e8d8e5596f.png
+add to cart
+[0.646484375, 0.775, 0.758203125, 0.8520833333333333]
+Response: (0.72, 0.87)
+Incorrect
+
+Test 134/436
+test_data/web_db995728-d16b-46cb-9621-22e8d8e5596f.png
+add the first product to wish list
+[0.595703125, 0.9041666666666667, 0.685546875, 0.9395833333333333]
+Response: (0.50, 0.96)
+Incorrect
+
+Test 135/436
+test_data/web_2595ae32-9df7-4198-a48e-6c291a1fb01c.png
+previous images
+[0.0234375, 0.23680555555555555, 0.07421875, 0.34791666666666665]
+Response: (0.04, 0.96)
+Incorrect
+
+Test 136/436
+test_data/web_c576ac89-3f3e-4f4d-9efd-1ad4b959a630.png
+enter email address
+[0.728125, 0.6881944444444444, 0.90390625, 0.7354166666666667]
+Response: (0.87, 0.69)
+Correct
+
+Test 137/436
+test_data/web_c576ac89-3f3e-4f4d-9efd-1ad4b959a630.png
+check privacy policy
+[0.008203125, 0.6847222222222222, 0.15234375, 0.7243055555555555]
+Response: (0.05, 0.78)
+Incorrect
+
+Test 138/436
+test_data/web_a4d22512-1c68-4fda-9b49-d207326365ce.png
+print the page
+[0.00546875, 0.3958333333333333, 0.10390625, 0.45]
+Response: (0.04, 0.42)
+Correct
+
+Test 139/436
+test_data/web_a4d22512-1c68-4fda-9b49-d207326365ce.png
+close item
+[0.946484375, 0.43194444444444446, 0.978515625, 0.46875]
+Response: (0.02, 0.01)
+Incorrect
+
+Test 140/436
+test_data/web_844d70be-3743-409c-abf0-a148975fdbc8.png
+adjusting the display
+[0.20234375, 0.5340277777777778, 0.275, 0.5888888888888889]
+Response: (0.76, 0.97)
+Incorrect
+
+Test 141/436
+test_data/web_844d70be-3743-409c-abf0-a148975fdbc8.png
+sort from largest to smallest
+[0.95078125, 0.5381944444444444, 0.978125, 0.5840277777777778]
+Response: (0.94, 0.21)
+Incorrect
+
+Test 142/436
+test_data/web_e891e448-0f8e-4673-9122-405a48cabad3.png
+next page
+[0.278125, 0.8548611111111111, 0.30859375, 0.9034722222222222]
+Response: (0.95, 0.04)
+Incorrect
+
+Test 143/436
+test_data/web_e891e448-0f8e-4673-9122-405a48cabad3.png
+page 5
+[0.253125, 0.8506944444444444, 0.27109375, 0.9048611111111111]
+Response: (0.94, 0.03)
+Incorrect
+
+Test 144/436
+test_data/web_a6e78bca-0f72-405b-8bda-7c0edc617b4e.png
+details about dead sea collection salt
+[0.9234375, 0.30833333333333335, 0.98046875, 0.3784722222222222]
+Response: (0.28, 0.37)
+Incorrect
+
+Test 145/436
+test_data/web_60786716-b5ae-47f4-bd46-c5f9a0e87293.png
+enter email address
+[0.135546875, 0.6166666666666667, 0.488671875, 0.6659722222222222]
+Response: (0.10, 0.68)
+Incorrect
+
+Test 146/436
+test_data/web_60786716-b5ae-47f4-bd46-c5f9a0e87293.png
+create an account
+[0.509765625, 0.6381944444444444, 0.63671875, 0.6930555555555555]
+Response: (0.95, 0.04)
+Incorrect
+
+Test 147/436
+test_data/web_bb6f684d-6060-478d-aceb-d0b77c23a68b.png
+reset the password
+[0.137890625, 0.6430555555555556, 0.271875, 0.6951388888888889]
+Response: (0.20, 0.65)
+Correct
+
+Test 148/436
+test_data/web_bb6f684d-6060-478d-aceb-d0b77c23a68b.png
+go to onestop market homepage
+[0.004296875, 0.08611111111111111, 0.187890625, 0.16180555555555556]
+Response: (0.00, 0.00)
+Incorrect
+
+Test 149/436
+test_data/web_b2d92416-5c93-4a09-8304-44b8d166a7c7.png
+sign up for newsletter
+[0.13359375, 0.5715277777777777, 0.2828125, 0.6180555555555556]
+Response: (0.20, 0.79)
+Incorrect
+
+Test 150/436
+test_data/web_b2d92416-5c93-4a09-8304-44b8d166a7c7.png
+question for remote shopping assistance
+[0.334765625, 0.6375, 0.3671875, 0.69375]
+Response: (0.20, 0.73)
+Incorrect
+
+Test 151/436
+test_data/web_3acb3026-cbd7-4e41-8fb7-2b8a2e7e4fcb.png
+settings of cocowhip light
+[0.930078125, 0.7305555555555555, 0.963671875, 0.7840277777777778]
+Response: (0.75, 0.88)
+Incorrect
+
+Test 152/436
+test_data/web_3acb3026-cbd7-4e41-8fb7-2b8a2e7e4fcb.png
+close shopping cart
+[0.965625, 0.15486111111111112, 0.9921875, 0.20208333333333334]
+Response: (0.94, 0.03)
+Incorrect
+
+Test 153/436
+test_data/web_39126cee-4462-4567-9fa4-5ad1f3589047.png
+show reviews
+[0.0875, 0.58125, 0.18515625, 0.6256944444444444]
+Response: (0.15, 0.57)
+Incorrect
+
+Test 154/436
+test_data/web_0c5f692d-4c32-4533-ac2a-d6f8d7c6d7c1.png
+add the sandals to cart
+[0.405078125, 0.6979166666666666, 0.494921875, 0.7451388888888889]
+Response: (0.50, 0.75)
+Incorrect
+
+Test 155/436
+test_data/web_f8c6a82c-5e0e-4067-a560-06e9615e65fe.png
+choose size 14
+[0.58828125, 0.6402777777777777, 0.637890625, 0.6833333333333333]
+Response: (0.65, 0.66)
+Incorrect
+
+Test 156/436
+test_data/web_f8c6a82c-5e0e-4067-a560-06e9615e65fe.png
+adjust the quantity of the first product
+[0.594921875, 0.9069444444444444, 0.637109375, 0.9798611111111111]
+Response: (0.72, 0.86)
+Incorrect
+
+Test 157/436
+test_data/web_96671728-050c-4e62-bdb8-5bd68b603de0.png
+enter lowest price
+[0.13828125, 0.7826388888888889, 0.299609375, 0.8256944444444444]
+Response: (0.10, 0.89)
+Incorrect
+
+Test 158/436
+test_data/web_96671728-050c-4e62-bdb8-5bd68b603de0.png
+enter product name
+[0.13828125, 0.4423611111111111, 0.500390625, 0.4861111111111111]
+Response: (0.21, 0.66)
+Incorrect
+
+Test 159/436
+test_data/web_70a307b8-62fb-4d66-921a-7c4445af3e65.png
+show password
+[0.133203125, 0.64375, 0.240625, 0.6798611111111111]
+Response: (0.14, 0.67)
+Correct
+
+Test 160/436
+test_data/web_70a307b8-62fb-4d66-921a-7c4445af3e65.png
+enter email address
+[0.135546875, 0.47638888888888886, 0.4875, 0.5229166666666667]
+Response: (0.15, 0.57)
+Incorrect
+
+Test 161/436
+test_data/web_b645cb4e-48f2-4f75-8503-3da18f2e9b79.png
+search in the forum
+[0.373046875, 0.007638888888888889, 0.52265625, 0.06180555555555556]
+Response: (0.79, 0.02)
+Incorrect
+
+Test 162/436
+test_data/web_b645cb4e-48f2-4f75-8503-3da18f2e9b79.png
+check my account
+[0.753125, 0.007638888888888889, 0.911328125, 0.06111111111111111]
+Response: (0.00, 0.00)
+Incorrect
+
+Test 163/436
+test_data/web_8be1be42-6037-4cba-a78a-065e7a7d77ae.png
+check my postbox
+[0.6296875, 0.011111111111111112, 0.662890625, 0.06041666666666667]
+Response: (0.21, 0.02)
+Incorrect
+
+Test 164/436
+test_data/web_8be1be42-6037-4cba-a78a-065e7a7d77ae.png
+submit a new post
+[0.675390625, 0.0125, 0.73828125, 0.06111111111111111]
+Response: (0.21, 0.04)
+Incorrect
+
+Test 165/436
+test_data/web_fd8befe1-4e5b-4de2-9978-db25d2be2173.png
+add comment
+[0.08046875, 0.5236111111111111, 0.51796875, 0.7201388888888889]
+Response: (0.07, 0.61)
+Incorrect
+
+Test 166/436
+test_data/web_fd8befe1-4e5b-4de2-9978-db25d2be2173.png
+back to previous page
+[0.07890625, 0.1076388888888889, 0.1046875, 0.15138888888888888]
+Response: (0.04, 0.03)
+Incorrect
+
+Test 167/436
+test_data/web_587b0743-0e7a-4291-811b-4d6fb5510fb3.png
+post the comment
+[0.03671875, 0.9097222222222222, 0.089453125, 0.9694444444444444]
+Response: (0.07, 0.03)
+Incorrect
+
+Test 168/436
+test_data/web_587b0743-0e7a-4291-811b-4d6fb5510fb3.png
+unsubscribe the book 
+[0.742578125, 0.34375, 0.83671875, 0.40625]
+Response: (0.87, 0.34)
+Incorrect
+
+Test 169/436
+test_data/web_89d60b8b-3f6d-4160-93d4-1791d4899455.png
+unsupport the book
+[0.04765625, 0.24375, 0.06953125, 0.275]
+Response: (0.75, 0.65)
+Incorrect
+
+Test 170/436
+test_data/web_89d60b8b-3f6d-4160-93d4-1791d4899455.png
+check the forums
+[0.11875, 0.010416666666666666, 0.189453125, 0.06736111111111111]
+Response: (0.04, 0.07)
+Incorrect
+
+Test 171/436
+test_data/web_d146e5c3-e1ea-446c-ab84-a348fe07a1b8.png
+check details of the first book
+[0.070703125, 0.2708333333333333, 0.6796875, 0.36736111111111114]
+Response: (0.05, 0.67)
+Incorrect
+
+Test 172/436
+test_data/web_d146e5c3-e1ea-446c-ab84-a348fe07a1b8.png
+check the comments
+[0.125, 0.20416666666666666, 0.20234375, 0.25833333333333336]
+Response: (0.05, 0.02)
+Incorrect
+
+Test 173/436
+test_data/web_d146e5c3-e1ea-446c-ab84-a348fe07a1b8.png
+change the sorting method
+[0.213671875, 0.20625, 0.27734375, 0.25833333333333336]
+Response: (0.07, 0.02)
+Incorrect
+
+Test 174/436
+test_data/web_843805d1-f33a-400f-bcdd-901a9ae91329.png
+sort based on active
+[0.21484375, 0.36736111111111114, 0.3328125, 0.41458333333333336]
+Response: (0.76, 0.17)
+Incorrect
+
+Test 175/436
+test_data/web_843805d1-f33a-400f-bcdd-901a9ae91329.png
+sort based on most commented
+[0.215234375, 0.525, 0.334375, 0.5791666666666667]
+Response: (0.27, 0.57)
+Correct
+
+Test 176/436
+test_data/web_aa8f1636-1c5c-4a79-b8d9-f92956ba78e9.png
+support the second book
+[0.04765625, 0.41041666666666665, 0.069921875, 0.4444444444444444]
+Response: (0.20, 0.65)
+Incorrect
+
+Test 177/436
+test_data/web_aa8f1636-1c5c-4a79-b8d9-f92956ba78e9.png
+view the information of book lover or not?
+[0.072265625, 0.6666666666666666, 0.37890625, 0.7694444444444445]
+Response: (0.08, 0.71)
+Correct
+
+Test 178/436
+test_data/web_4af68da5-d7bb-4910-b434-1301097cda1f.png
+subscribe the second book
+[0.810546875, 0.4527777777777778, 0.90390625, 0.5125]
+Response: (0.75, 0.72)
+Incorrect
+
+Test 179/436
+test_data/web_4af68da5-d7bb-4910-b434-1301097cda1f.png
+create a forum
+[0.862109375, 0.19375, 0.961328125, 0.25277777777777777]
+Response: (0.94, 0.20)
+Correct
+
+Test 180/436
+test_data/web_a43882ed-3d5d-40c3-b077-a256acf058ec.png
+view the comments of the first book
+[0.071484375, 0.3972222222222222, 0.14453125, 0.4305555555555556]
+Response: (0.05, 0.04)
+Incorrect
+
+Test 181/436
+test_data/web_a43882ed-3d5d-40c3-b077-a256acf058ec.png
+show this forum
+[0.730859375, 0.4340277777777778, 0.9734375, 0.5166666666666667]
+Response: (0.97, 0.26)
+Incorrect
+
+Test 182/436
+test_data/web_ab471260-bba4-4f1a-a34b-2391c3c88674.png
+replay the no.82 comment
+[0.14921875, 0.4111111111111111, 0.185546875, 0.4479166666666667]
+Response: (0.22, 0.97)
+Incorrect
+
+Test 183/436
+test_data/web_ab471260-bba4-4f1a-a34b-2391c3c88674.png
+hide the no.140 comment
+[0.666015625, 0.6972222222222222, 0.703515625, 0.7277777777777777]
+Response: (0.22, 0.95)
+Incorrect
+
+Test 184/436
+test_data/web_0481a1db-93fd-4d1e-9146-15526e37eacd.png
+check the profile of user knittedjedi
+[0.01796875, 0.45902777777777776, 0.064453125, 0.5]
+Response: (0.07, 0.47)
+Incorrect
+
+Test 185/436
+test_data/web_0481a1db-93fd-4d1e-9146-15526e37eacd.png
+support the no. 72 comment
+[0.050390625, 0.7486111111111111, 0.0734375, 0.7840277777777778]
+Response: (0.95, 0.95)
+Incorrect
+
+Test 186/436
+test_data/web_5766e094-3b76-4b5f-8399-e47ff5506df2.png
+input the forum name
+[0.037890625, 0.23680555555555555, 0.520703125, 0.29583333333333334]
+Response: (0.06, 0.24)
+Correct
+
+Test 187/436
+test_data/web_5766e094-3b76-4b5f-8399-e47ff5506df2.png
+input the title
+[0.0390625, 0.34791666666666665, 0.5203125, 0.4048611111111111]
+Response: (0.06, 0.30)
+Incorrect
+
+Test 188/436
+test_data/web_5766e094-3b76-4b5f-8399-e47ff5506df2.png
+input the description of the forum
+[0.0375, 0.45694444444444443, 0.519921875, 0.5479166666666667]
+Response: (0.06, 0.31)
+Incorrect
+
+Test 189/436
+test_data/web_5766e094-3b76-4b5f-8399-e47ff5506df2.png
+view formatting help
+[0.1265625, 0.9381944444444444, 0.21328125, 0.9722222222222222]
+Response: (0.04, 0.93)
+Incorrect
+
+Test 190/436
+test_data/web_f9bf7ee5-1966-4261-bf9e-76202c196a55.png
+choose tag
+[0.037890625, 0.6972222222222222, 0.519921875, 0.7868055555555555]
+Response: (0.04, 0.78)
+Correct
+
+Test 191/436
+test_data/web_f9bf7ee5-1966-4261-bf9e-76202c196a55.png
+create the forum
+[0.037890625, 0.8444444444444444, 0.136328125, 0.9034722222222222]
+Response: (0.07, 0.83)
+Incorrect
+
+Test 192/436
+test_data/web_f680f8e6-e068-4ca9-9be6-2f78c2899e0a.png
+input the body of the submission
+[0.03828125, 0.5430555555555555, 0.5203125, 0.8895833333333333]
+Response: (0.05, 0.47)
+Incorrect
+
+Test 193/436
+test_data/web_f680f8e6-e068-4ca9-9be6-2f78c2899e0a.png
+upload a image for the submission
+[0.0796875, 0.2125, 0.130078125, 0.2520833333333333]
+Response: (0.05, 0.01)
+Incorrect
+
+Test 194/436
+test_data/web_f680f8e6-e068-4ca9-9be6-2f78c2899e0a.png
+input an url
+[0.0375, 0.2590277777777778, 0.5203125, 0.3159722222222222]
+Response: (0.07, 0.27)
+Correct
+
+Test 195/436
+test_data/web_13e31182-318c-43d9-9378-a69da2dc1b01.png
+choose the forum of askreddit
+[0.037890625, 0.525, 0.176953125, 0.5722222222222222]
+Response: (0.07, 0.45)
+Incorrect
+
+Test 196/436
+test_data/web_d45c0bb4-1ed8-494e-b099-2063efb1d729.png
+switch to dark mode
+[0.850390625, 0.3020833333333333, 0.959765625, 0.3638888888888889]
+Response: (0.94, 0.96)
+Incorrect
+
+Test 197/436
+test_data/web_d45c0bb4-1ed8-494e-b099-2063efb1d729.png
+check my profile
+[0.85, 0.07916666666666666, 0.96015625, 0.1284722222222222]
+Response: (0.72, 0.11)
+Incorrect
+
+Test 198/436
+test_data/web_48f086db-edfd-43d3-95b8-b2eee50367da.png
+check the submissions
+[0.105078125, 0.11944444444444445, 0.1921875, 0.17152777777777778]
+Response: (0.09, 0.19)
+Incorrect
+
+Test 199/436
+test_data/web_6c4e07ff-3589-4a78-99cf-fcf703a33a74.png
+open external links in the new tab
+[0.17109375, 0.5756944444444444, 0.18828125, 0.60625]
+Response: (0.25, 0.63)
+Incorrect
+
+Test 200/436
+test_data/web_6c4e07ff-3589-4a78-99cf-fcf703a33a74.png
+don't show thumbnails
+[0.169921875, 0.6284722222222222, 0.187890625, 0.6597222222222222]
+Response: (0.21, 0.77)
+Incorrect
+
+Test 201/436
+test_data/web_6c4e07ff-3589-4a78-99cf-fcf703a33a74.png
+don't show post previews
+[0.17109375, 0.7854166666666667, 0.18828125, 0.8166666666666667]
+Response: (0.30, 0.83)
+Incorrect
+
+Test 202/436
+test_data/web_6c4e07ff-3589-4a78-99cf-fcf703a33a74.png
+switch the language
+[0.171875, 0.25555555555555554, 0.32890625, 0.31527777777777777]
+Response: (0.19, 0.32)
+Incorrect
+
+Test 203/436
+test_data/web_6c4e07ff-3589-4a78-99cf-fcf703a33a74.png
+change the time zone
+[0.171484375, 0.33402777777777776, 0.39140625, 0.3902777777777778]
+Response: (0.20, 0.36)
+Correct
+
+Test 204/436
+test_data/web_991bf1e6-ccb5-46c6-ab07-cbfaa277aaf0.png
+check messages
+[0.126171875, 0.12152777777777778, 0.198828125, 0.1736111111111111]
+Response: (0.10, 0.17)
+Incorrect
+
+Test 205/436
+test_data/web_acad6928-ac22-40c7-98df-4e0df7b318bc.png
+input my email
+[0.31953125, 0.6194444444444445, 0.71484375, 0.6888888888888889]
+Response: (0.30, 0.62)
+Incorrect
+
+Test 206/436
+test_data/web_acad6928-ac22-40c7-98df-4e0df7b318bc.png
+close the sign in box
+[0.70078125, 0.10833333333333334, 0.728125, 0.15555555555555556]
+Response: (0.94, 0.04)
+Incorrect
+
+Test 207/436
+test_data/web_516f6429-4157-45f8-93a4-db1d525cedb9.png
+follow the post
+[0.527734375, 0.44375, 0.594921875, 0.5083333333333333]
+Response: (0.50, 0.47)
+Incorrect
+
+Test 208/436
+test_data/web_516f6429-4157-45f8-93a4-db1d525cedb9.png
+close the message box
+[0.2921875, 0.5909722222222222, 0.31015625, 0.6222222222222222]
+Response: (0.79, 0.49)
+Incorrect
+
+Test 209/436
+test_data/web_2f3df3a1-d287-4457-91b3-a672d0f72f84.png
+share with facebook
+[0.072265625, 0.31180555555555556, 0.096875, 0.35347222222222224]
+Response: (0.79, 0.02)
+Incorrect
+
+Test 210/436
+test_data/web_2f3df3a1-d287-4457-91b3-a672d0f72f84.png
+share to twitter/x
+[0.072265625, 0.38263888888888886, 0.096875, 0.4263888888888889]
+Response: (0.79, 0.03)
+Incorrect
+
+Test 211/436
+test_data/web_659de266-0af1-47bc-a2dc-5edc4dbb29d8.png
+search in the website
+[0.948828125, 0.013194444444444444, 0.98125, 0.06458333333333334]
+Response: (0.94, 0.03)
+Incorrect
+
+Test 212/436
+test_data/web_6f420f7d-e710-428d-99fa-9606adb5f509.png
+open the menu
+[0.0046875, 0.011111111111111112, 0.041015625, 0.06458333333333334]
+Response: (0.72, 0.03)
+Incorrect
+
+Test 213/436
+test_data/web_6f420f7d-e710-428d-99fa-9606adb5f509.png
+subscribe the website
+[0.684765625, 0.008333333333333333, 0.869140625, 0.06736111111111111]
+Response: (0.72, 0.04)
+Correct
+
+Test 214/436
+test_data/web_ff1666cb-81cb-4180-94ee-661a111749e4.png
+check the letters
+[0.505859375, 0.35347222222222224, 0.921875, 0.43680555555555556]
+Response: (0.72, 0.03)
+Incorrect
+
+Test 215/436
+test_data/web_ff1666cb-81cb-4180-94ee-661a111749e4.png
+check the index
+[0.5046875, 0.6277777777777778, 0.923046875, 0.7291666666666666]
+Response: (0.72, 0.68)
+Correct
+
+Test 216/436
+test_data/web_e22bd6de-3985-4ccc-a316-eb383a03475f.png
+open the menu
+[0.00625, 0.014583333333333334, 0.0421875, 0.07222222222222222]
+Response: (0.79, 0.03)
+Incorrect
+
+Test 217/436
+test_data/web_4e4113f0-12bd-4b49-84c4-88a5bbf7924b.png
+check the books on culture
+[0.254296875, 0.07777777777777778, 0.34140625, 0.1375]
+Response: (0.75, 0.09)
+Incorrect
+
+Test 218/436
+test_data/web_4e4113f0-12bd-4b49-84c4-88a5bbf7924b.png
+check the books on true crime
+[0.35078125, 0.07777777777777778, 0.435546875, 0.1388888888888889]
+Response: (0.70, 0.09)
+Incorrect
+
+Test 219/436
+test_data/web_44f9b58e-0964-4a89-bdb0-18e60f6eb07f.png
+go to book marks
+[0.705078125, 0.0, 0.801171875, 0.06666666666666667]
+Response: (0.75, 0.08)
+Incorrect
+
+Test 220/436
+test_data/web_22f4dba1-1fb0-46f0-b7b5-4dfdf35de24a.png
+check the books on tv & file
+[0.21484375, 0.06527777777777778, 0.3921875, 0.12013888888888889]
+Response: (0.25, 0.18)
+Incorrect
+
+Test 221/436
+test_data/web_28c3aef4-8c82-4746-8cfa-3aa747127c97.png
+search with the current search query
+[0.169921875, 0.28402777777777777, 0.233984375, 0.34097222222222223]
+Response: (0.07, 0.26)
+Incorrect
+
+Test 222/436
+test_data/web_28c3aef4-8c82-4746-8cfa-3aa747127c97.png
+check the third result
+[0.075390625, 0.7527777777777778, 0.955078125, 0.9006944444444445]
+Response: (0.20, 0.55)
+Incorrect
+
+Test 223/436
+test_data/web_4bf90a3b-dcde-4d16-ba02-470eb8976199.png
+check the image
+[0.078515625, 0.28888888888888886, 0.52421875, 0.7701388888888889]
+Response: (0.06, 0.11)
+Incorrect
+
+Test 224/436
+test_data/web_626e849e-afe2-47c7-8e67-da7331497c25.png
+log out my account
+[0.85, 0.36666666666666664, 0.9609375, 0.42083333333333334]
+Response: (0.92, 0.28)
+Incorrect
+
+Test 225/436
+test_data/web_626e849e-afe2-47c7-8e67-da7331497c25.png
+delete the search query
+[0.49296875, 0.2048611111111111, 0.519140625, 0.2625]
+Response: (0.05, 0.72)
+Incorrect
+
+Test 226/436
+test_data/web_9618f323-7310-4d6e-9c79-a476427ca1ae.png
+filter with featured creteria
+[0.21484375, 0.11944444444444445, 0.30234375, 0.17083333333333334]
+Response: (0.72, 0.16)
+Incorrect
+
+Test 227/436
+test_data/web_9618f323-7310-4d6e-9c79-a476427ca1ae.png
+check the wiki
+[0.19140625, 0.0, 0.244921875, 0.07708333333333334]
+Response: (0.20, 0.04)
+Correct
+
+Test 228/436
+test_data/web_9618f323-7310-4d6e-9c79-a476427ca1ae.png
+log in my account
+[0.82578125, 0.0, 0.883984375, 0.07777777777777778]
+Response: (0.94, 0.04)
+Incorrect
+
+Test 229/436
+test_data/web_533f02b1-e687-462f-9d14-5a25f54d9464.png
+create a new page
+[0.0375, 0.25833333333333336, 0.153515625, 0.31805555555555554]
+Response: (0.70, 0.28)
+Incorrect
+
+Test 230/436
+test_data/web_533f02b1-e687-462f-9d14-5a25f54d9464.png
+search in the website
+[0.360546875, 0.011111111111111112, 0.524609375, 0.06805555555555555]
+Response: (0.96, 0.02)
+Incorrect
+
+Test 231/436
+test_data/web_7562f51e-fb02-4c70-a69c-bf02a6b253fa.png
+change the sorting method
+[0.213671875, 0.20694444444444443, 0.277734375, 0.2611111111111111]
+Response: (0.06, 0.02)
+Incorrect
+
+Test 232/436
+test_data/web_7562f51e-fb02-4c70-a69c-bf02a6b253fa.png
+support the first new
+[0.0484375, 0.2902777777777778, 0.068359375, 0.3159722222222222]
+Response: (0.04, 0.27)
+Incorrect
+
+Test 233/436
+test_data/web_7fa2512c-eaa9-4195-a8a3-a1ad5d359ff1.png
+hide this forum
+[0.7296875, 0.43472222222222223, 0.9734375, 0.5194444444444445]
+Response: (0.79, 0.27)
+Incorrect
+
+Test 234/436
+test_data/web_7fa2512c-eaa9-4195-a8a3-a1ad5d359ff1.png
+check the details of the third new
+[0.072265625, 0.5770833333333333, 0.648828125, 0.7340277777777777]
+Response: (0.07, 0.61)
+Incorrect
+
+Test 235/436
+test_data/web_65dfb15c-e1f6-4260-9096-85ab73dde428.png
+hide this forum
+[0.741796875, 0.73125, 0.794140625, 0.7888888888888889]
+Response: (0.72, 0.79)
+Incorrect
+
+Test 236/436
+test_data/web_d9841866-2ee7-4afd-a77a-8c0e52f6691c.png
+close the ad banner
+[0.769140625, 0.8743055555555556, 0.785546875, 0.8993055555555556]
+Response: (0.95, 0.03)
+Incorrect
+
+Test 237/436
+test_data/web_d9841866-2ee7-4afd-a77a-8c0e52f6691c.png
+search in the website
+[0.963671875, 0.5819444444444445, 0.997265625, 0.6388888888888888]
+Response: (0.97, 0.02)
+Incorrect
+
+Test 238/436
+test_data/web_d9841866-2ee7-4afd-a77a-8c0e52f6691c.png
+log in by x account
+[0.773046875, 0.3298611111111111, 0.80078125, 0.3729166666666667]
+Response: (0.97, 0.04)
+Incorrect
+
+Test 239/436
+test_data/web_d86766a4-4d7f-467a-899e-dcde8472e632.png
+share to facebook
+[0.012890625, 0.7520833333333333, 0.0328125, 0.7854166666666667]
+Response: (0.94, 0.04)
+Incorrect
+
+Test 240/436
+test_data/web_11acd5dc-63ab-415f-823d-10cd68acef01.png
+check the weather news
+[0.100390625, 0.2125, 0.166796875, 0.2881944444444444]
+Response: (0.21, 0.27)
+Incorrect
+
+Test 241/436
+test_data/web_6df9c1d5-2acf-4f59-94d6-2fd9362dd8af.png
+follow sadie gurman
+[0.1484375, 0.8763888888888889, 0.199609375, 0.9145833333333333]
+Response: (0.22, 0.83)
+Incorrect
+
+Test 242/436
+test_data/web_6df9c1d5-2acf-4f59-94d6-2fd9362dd8af.png
+search in the website
+[0.926171875, 0.06458333333333334, 0.9625, 0.11041666666666666]
+Response: (0.94, 0.05)
+Incorrect
+
+Test 243/436
+test_data/web_d977cce9-21cf-4eab-8d17-2aa9a616ba2f.png
+pause reading the page
+[0.245703125, 0.5527777777777778, 0.28671875, 0.625]
+Response: (0.50, 0.67)
+Incorrect
+
+Test 244/436
+test_data/web_d977cce9-21cf-4eab-8d17-2aa9a616ba2f.png
+adjust reading speed
+[0.585546875, 0.5652777777777778, 0.630859375, 0.6125]
+Response: (0.72, 0.58)
+Incorrect
+
+Test 245/436
+test_data/web_573eb5de-79cc-411a-a984-d7c28d8e5ce3.png
+open the menu
+[0.083984375, 0.15, 0.11484375, 0.2326388888888889]
+Response: (0.00, 0.00)
+Incorrect
+
+Test 246/436
+test_data/web_573eb5de-79cc-411a-a984-d7c28d8e5ce3.png
+check sports news
+[0.3703125, 0.14930555555555555, 0.426953125, 0.2326388888888889]
+Response: (0.45, 0.24)
+Incorrect
+
+Test 247/436
+test_data/web_7e3c1de0-602b-48ec-bfb4-1215f33356f3.png
+share the article
+[0.561328125, 0.3402777777777778, 0.62109375, 0.38680555555555557]
+Response: (0.94, 0.04)
+Incorrect
+
+Test 248/436
+test_data/web_1c75d12a-d93d-4cb2-b179-38009584c282.png
+check science news
+[0.601953125, 0.21875, 0.6640625, 0.3034722222222222]
+Response: (0.70, 0.24)
+Incorrect
+
+Test 249/436
+test_data/web_1c75d12a-d93d-4cb2-b179-38009584c282.png
+donate to the website
+[0.88125, 0.14791666666666667, 0.95703125, 0.19722222222222222]
+Response: (0.94, 0.11)
+Incorrect
+
+Test 250/436
+test_data/web_20979acb-d8af-4fa2-becf-ed38f73f5fcb.png
+search the result
+[0.199609375, 0.08472222222222223, 0.231640625, 0.13194444444444445]
+Response: (0.06, 0.19)
+Incorrect
+
+Test 251/436
+test_data/web_20979acb-d8af-4fa2-becf-ed38f73f5fcb.png
+zoom in on the map
+[0.966015625, 0.08819444444444445, 0.99921875, 0.1451388888888889]
+Response: (0.94, 0.95)
+Incorrect
+
+Test 252/436
+test_data/web_ea184924-e155-4745-abaa-1f9d0e870c67.png
+sign up
+[0.93046875, 0.014583333333333334, 0.990234375, 0.06388888888888888]
+Response: (0.95, 0.04)
+Correct
+
+Test 253/436
+test_data/web_ea184924-e155-4745-abaa-1f9d0e870c67.png
+zoom out
+[0.96796875, 0.1451388888888889, 0.998828125, 0.19652777777777777]
+Response: (0.96, 0.97)
+Incorrect
+
+Test 254/436
+test_data/web_f2db3d49-18fb-4517-8de8-bd5d73efecb9.png
+export the map data
+[0.26875, 0.01597222222222222, 0.323046875, 0.06180555555555556]
+Response: (0.49, 0.04)
+Incorrect
+
+Test 255/436
+test_data/web_f2db3d49-18fb-4517-8de8-bd5d73efecb9.png
+locate to my position
+[0.97109375, 0.2, 0.998828125, 0.2569444444444444]
+Response: (0.03, 0.02)
+Incorrect
+
+Test 256/436
+test_data/web_2d6ce349-19b2-438b-bc41-611bb64ee63b.png
+search the result
+[0.199609375, 0.08611111111111111, 0.229296875, 0.12986111111111112]
+Response: (0.76, 0.02)
+Incorrect
+
+Test 257/436
+test_data/web_2d6ce349-19b2-438b-bc41-611bb64ee63b.png
+share the map with someone
+[0.96796875, 0.3840277777777778, 0.998828125, 0.4354166666666667]
+Response: (0.97, 0.03)
+Incorrect
+
+Test 258/436
+test_data/web_21f41383-9618-40bf-92a6-df3f7c1fb251.png
+check the gps traces
+[0.5359375, 0.022222222222222223, 0.609765625, 0.05416666666666667]
+Response: (0.97, 0.02)
+Incorrect
+
+Test 259/436
+test_data/web_21f41383-9618-40bf-92a6-df3f7c1fb251.png
+map layers
+[0.966796875, 0.26875, 0.99765625, 0.3236111111111111]
+Response: (0.95, 0.04)
+Incorrect
+
+Test 260/436
+test_data/web_dbd7514b-9ca3-40cd-b09a-990f7b955da1.png
+view the result of erie country
+[0.118359375, 0.525, 0.185546875, 0.5555555555555556]
+Response: (0.29, 0.94)
+Incorrect
+
+Test 261/436
+test_data/web_dbd7514b-9ca3-40cd-b09a-990f7b955da1.png
+close the search results
+[0.240234375, 0.1625, 0.26171875, 0.1986111111111111]
+Response: (0.03, 0.12)
+Incorrect
+
+Test 262/436
+test_data/web_bbe84736-3a87-4cc1-b9f1-e10144d28f94.png
+check the result in new york
+[0.150390625, 0.7180555555555556, 0.21015625, 0.7465277777777778]
+Response: (0.32, 0.95)
+Incorrect
+
+Test 263/436
+test_data/web_bbe84736-3a87-4cc1-b9f1-e10144d28f94.png
+navigating to boston
+[0.2359375, 0.08819444444444445, 0.266796875, 0.13541666666666666]
+Response: (0.04, 0.02)
+Incorrect
+
+Test 264/436
+test_data/web_da9f908d-568d-4d65-8587-47870f78f678.png
+more option of edit button
+[0.1921875, 0.0125, 0.213671875, 0.06180555555555556]
+Response: (0.04, 0.02)
+Incorrect
+
+Test 265/436
+test_data/web_da9f908d-568d-4d65-8587-47870f78f678.png
+need help
+[0.806640625, 0.01597222222222222, 0.8375, 0.05416666666666667]
+Response: (0.96, 0.02)
+Incorrect
+
+Test 266/436
+test_data/web_7872daa1-5a12-4ada-95cc-0dd9e655fb4f.png
+switch map layer to the opnvkarte
+[0.81953125, 0.34652777777777777, 0.9828125, 0.41458333333333336]
+Response: (0.94, 0.35)
+Correct
+
+Test 267/436
+test_data/web_4b78be88-30cd-401d-8d6d-4ef5a035fbda.png
+add a place mark
+[0.750390625, 0.4965277777777778, 0.784375, 0.5590277777777778]
+Response: (0.71, 0.12)
+Incorrect
+
+Test 268/436
+test_data/web_4b78be88-30cd-401d-8d6d-4ef5a035fbda.png
+check communities
+[0.64453125, 0.022222222222222223, 0.724609375, 0.058333333333333334]
+Response: (0.64, 0.04)
+Incorrect
+
+Test 269/436
+test_data/web_352ae757-fdf0-4d02-9167-c24a42629a60.png
+choosing the travel mode
+[0.02890625, 0.2798611111111111, 0.255078125, 0.32569444444444445]
+Response: (0.09, 0.79)
+Incorrect
+
+Test 270/436
+test_data/web_352ae757-fdf0-4d02-9167-c24a42629a60.png
+from where
+[0.0296875, 0.16805555555555557, 0.2921875, 0.21944444444444444]
+Response: (0.04, 0.47)
+Incorrect
+
+Test 271/436
+test_data/web_60700bbc-8e31-46b0-9ef0-826647262c68.png
+go
+[0.261328125, 0.2763888888888889, 0.293359375, 0.3277777777777778]
+Response: (0.22, 0.24)
+Incorrect
+
+Test 272/436
+test_data/web_60700bbc-8e31-46b0-9ef0-826647262c68.png
+reverse directions
+[0.033203125, 0.3388888888888889, 0.146484375, 0.3729166666666667]
+Response: (0.14, 0.49)
+Incorrect
+
+Test 273/436
+test_data/web_e067ae0f-989b-4e7f-9891-aea5d284a8de.png
+check the first direction
+[0.012890625, 0.5590277777777778, 0.296875, 0.60625]
+Response: (0.19, 0.86)
+Incorrect
+
+Test 274/436
+test_data/web_e067ae0f-989b-4e7f-9891-aea5d284a8de.png
+view my map's history
+[0.2359375, 0.014583333333333334, 0.296875, 0.06944444444444445]
+Response: (0.29, 0.04)
+Correct
+
+Test 275/436
+test_data/web_fa131c38-3d94-4e5a-ba3a-269724d93a30.png
+close the location labels on the map
+[0.8953125, 0.7298611111111111, 0.909375, 0.7548611111111111]
+Response: (0.94, 0.03)
+Incorrect
+
+Test 276/436
+test_data/web_fa131c38-3d94-4e5a-ba3a-269724d93a30.png
+check the direction of "slight left onto hancock street"
+[0.009765625, 0.7277777777777777, 0.29140625, 0.8076388888888889]
+Response: (0.14, 0.69)
+Incorrect
+
+Test 277/436
+test_data/web_daa46aa2-e1ee-4391-9c27-578d5ed73cbc.png
+export licence
+[0.117578125, 0.6555555555555556, 0.181640625, 0.7145833333333333]
+Response: (0.10, 0.46)
+Incorrect
+
+Test 278/436
+test_data/web_daa46aa2-e1ee-4391-9c27-578d5ed73cbc.png
+change 42.3768
+[0.106640625, 0.24930555555555556, 0.191015625, 0.30833333333333335]
+Response: (0.20, 0.31)
+Incorrect
+
+Test 279/436
+test_data/web_833f9d90-a50c-4f03-9eb6-e740aa811fa0.png
+mark a question place
+[0.96484375, 0.5722222222222222, 1.0, 0.6368055555555555]
+Response: (0.76, 0.10)
+Incorrect
+
+Test 280/436
+test_data/web_833f9d90-a50c-4f03-9eb6-e740aa811fa0.png
+goto openstreetmap france
+[0.775, 0.9743055555555555, 0.887109375, 0.9972222222222222]
+Response: (0.95, 0.02)
+Incorrect
+
+Test 281/436
+test_data/web_2345b5ec-6280-470e-9a6d-92a85d8b8873.png
+goto starbucks in auburn street
+[0.041796875, 0.73125, 0.100390625, 0.7618055555555555]
+Response: (0.09, 0.78)
+Incorrect
+
+Test 282/436
+test_data/web_2345b5ec-6280-470e-9a6d-92a85d8b8873.png
+view user diaries
+[0.56875, 0.018055555555555554, 0.642578125, 0.05625]
+Response: (0.65, 0.04)
+Incorrect
+
+Test 283/436
+test_data/web_c1b9d596-c60c-47e2-a863-ef92324405ef.png
+register now
+[0.234765625, 0.26458333333333334, 0.31171875, 0.29097222222222224]
+Response: (0.24, 0.26)
+Incorrect
+
+Test 284/436
+test_data/web_c1b9d596-c60c-47e2-a863-ef92324405ef.png
+enter email address or username
+[0.103515625, 0.36527777777777776, 0.89453125, 0.42430555555555555]
+Response: (0.20, 0.35)
+Incorrect
+
+Test 285/436
+test_data/web_c1b9d596-c60c-47e2-a863-ef92324405ef.png
+enter password
+[0.103515625, 0.4965277777777778, 0.893359375, 0.5534722222222223]
+Response: (0.21, 0.56)
+Incorrect
+
+Test 286/436
+test_data/web_c1b9d596-c60c-47e2-a863-ef92324405ef.png
+select remember me
+[0.100390625, 0.6097222222222223, 0.117578125, 0.6416666666666667]
+Response: (0.20, 0.67)
+Incorrect
+
+Test 287/436
+test_data/web_0558c1f4-c05b-49a8-8479-04b1575779d2.png
+check openstreetmap belglum
+[0.130078125, 0.6743055555555556, 0.273046875, 0.6993055555555555]
+Response: (0.17, 0.72)
+Incorrect
+
+Test 288/436
+test_data/web_0558c1f4-c05b-49a8-8479-04b1575779d2.png
+sign up
+[0.925390625, 0.01597222222222222, 0.990625, 0.06527777777777778]
+Response: (0.94, 0.04)
+Correct
+
+Test 289/436
+test_data/web_c5db0d44-6584-42e2-85c7-e4802276bad0.png
+edit note
+[0.01171875, 0.4527777777777778, 0.2859375, 0.8458333333333333]
+Response: (0.24, 0.04)
+Incorrect
+
+Test 290/436
+test_data/web_c5db0d44-6584-42e2-85c7-e4802276bad0.png
+add note
+[0.012890625, 0.8659722222222223, 0.094140625, 0.9284722222222223]
+Response: (0.94, 0.90)
+Incorrect
+
+Test 291/436
+test_data/web_c5db0d44-6584-42e2-85c7-e4802276bad0.png
+add a note for the place on the map
+[0.55390625, 0.3840277777777778, 0.57421875, 0.4222222222222222]
+Response: (0.95, 0.02)
+Incorrect
+
+Test 292/436
+test_data/web_5e5f5a65-435a-424f-baf9-e5bf89b917f6.png
+check the map
+[0.3, 0.08819444444444445, 0.96171875, 0.9722222222222222]
+Response: (0.69, 0.02)
+Incorrect
+
+Test 293/436
+test_data/web_5e5f5a65-435a-424f-baf9-e5bf89b917f6.png
+close the note bar
+[0.263671875, 0.1527777777777778, 0.291015625, 0.2152777777777778]
+Response: (0.95, 0.02)
+Incorrect
+
+Test 294/436
+test_data/web_e0425287-c246-4122-a26e-6e0ca5958d4e.png
+select the html as share format
+[0.909375, 0.30069444444444443, 0.957421875, 0.35]
+Response: (0.94, 0.78)
+Incorrect
+
+Test 295/436
+test_data/web_e0425287-c246-4122-a26e-6e0ca5958d4e.png
+check geo uri
+[0.79921875, 0.4888888888888889, 0.961328125, 0.5152777777777777]
+Response: (0.94, 0.67)
+Incorrect
+
+Test 296/436
+test_data/web_e0425287-c246-4122-a26e-6e0ca5958d4e.png
+select image format
+[0.858203125, 0.6666666666666666, 0.90625, 0.6972222222222222]
+Response: (0.79, 0.69)
+Incorrect
+
+Test 297/436
+test_data/web_adbf2de0-3a79-4ffd-b344-b4a068f192ea.png
+more information
+[0.966015625, 0.36180555555555555, 0.998046875, 0.41875]
+Response: (0.01, 0.01)
+Incorrect
+
+Test 298/436
+test_data/web_adbf2de0-3a79-4ffd-b344-b4a068f192ea.png
+start mapping
+[0.152734375, 0.5361111111111111, 0.283984375, 0.5930555555555556]
+Response: (0.32, 0.74)
+Incorrect
+
+Test 299/436
+test_data/web_40de46fb-69c0-4de1-b4c6-9349c812450e.png
+view the english wiki
+[0.345703125, 0.17916666666666667, 0.447265625, 0.24375]
+Response: (0.65, 0.97)
+Incorrect
+
+Test 300/436
+test_data/web_40de46fb-69c0-4de1-b4c6-9349c812450e.png
+select search langugage
+[0.584765625, 0.65, 0.63046875, 0.7069444444444445]
+Response: (0.50, 0.67)
+Incorrect
+
+Test 301/436
+test_data/web_c6e1ac03-ebaf-4ebe-8fb2-5d6f8769f385.png
+read wikipedia in my language
+[0.368359375, 0.03125, 0.630859375, 0.08263888888888889]
+Response: (0.47, 0.06)
+Correct
+
+Test 302/436
+test_data/web_c6e1ac03-ebaf-4ebe-8fb2-5d6f8769f385.png
+download wikipedia app in google play store
+[0.083203125, 0.5743055555555555, 0.187890625, 0.63125]
+Response: (0.17, 0.61)
+Correct
+
+Test 303/436
+test_data/web_c6e1ac03-ebaf-4ebe-8fb2-5d6f8769f385.png
+download in apple app store
+[0.194140625, 0.5756944444444444, 0.287109375, 0.6305555555555555]
+Response: (0.17, 0.63)
+Incorrect
+
+Test 304/436
+test_data/web_c6e1ac03-ebaf-4ebe-8fb2-5d6f8769f385.png
+look into wikidata
+[0.826171875, 0.375, 0.8796875, 0.39791666666666664]
+Response: (0.89, 0.49)
+Incorrect
+
+Test 305/436
+test_data/web_467ae916-9a16-4517-85cc-f439c79e8c44.png
+support with a donation
+[0.080078125, 0.9305555555555556, 0.303125, 0.9569444444444445]
+Response: (0.15, 0.95)
+Correct
+
+Test 306/436
+test_data/web_467ae916-9a16-4517-85cc-f439c79e8c44.png
+search result
+[0.645703125, 0.5472222222222223, 0.694921875, 0.6215277777777778]
+Response: (0.70, 0.66)
+Incorrect
+
+Test 307/436
+test_data/web_df166734-1f33-4e1d-887f-292ee9c21502.png
+check wikipedia
+[0.651171875, 0.9326388888888889, 0.7046875, 0.9576388888888889]
+Response: (0.49, 0.96)
+Incorrect
+
+Test 308/436
+test_data/web_df166734-1f33-4e1d-887f-292ee9c21502.png
+goto france wikipedia
+[0.313671875, 0.37083333333333335, 0.372265625, 0.3972222222222222]
+Response: (0.34, 0.41)
+Incorrect
+
+Test 309/436
+test_data/web_c762cbb8-b6b0-48e3-84ad-5c4090137fa2.png
+check the result of machine learning
+[0.324609375, 0.7104166666666667, 0.63203125, 0.8090277777777778]
+Response: (0.45, 0.78)
+Correct
+
+Test 310/436
+test_data/web_c762cbb8-b6b0-48e3-84ad-5c4090137fa2.png
+search result for machine learning
+[0.631640625, 0.65, 0.67421875, 0.7104166666666667]
+Response: (0.30, 0.78)
+Incorrect
+
+Test 311/436
+test_data/web_7777a073-0358-46a8-babb-60c07c7bb17d.png
+switch to discussion
+[0.217578125, 0.052083333333333336, 0.296484375, 0.10902777777777778]
+Response: (0.28, 0.07)
+Correct
+
+Test 312/436
+test_data/web_7777a073-0358-46a8-babb-60c07c7bb17d.png
+look into reference [1]
+[0.406640625, 0.7180555555555556, 0.421484375, 0.7430555555555556]
+Response: (0.11, 0.59)
+Incorrect
+
+Test 313/436
+test_data/web_77e68e05-bbe4-4f54-96fa-79f714c17505.png
+language setting
+[0.13671875, 0.9722222222222222, 0.155859375, 1.0]
+Response: (0.05, 0.11)
+Incorrect
+
+Test 314/436
+test_data/web_77e68e05-bbe4-4f54-96fa-79f714c17505.png
+check the hyponyms of deep learning
+[0.215625, 0.7486111111111111, 0.305078125, 0.7826388888888889]
+Response: (0.29, 0.72)
+Incorrect
+
+Test 315/436
+test_data/web_6547e373-2b01-422b-a104-988a43742ba8.png
+check out the month's challenges
+[0.70546875, 0.8715277777777778, 0.95, 0.9548611111111112]
+Response: (0.79, 0.90)
+Correct
+
+Test 316/436
+test_data/web_6547e373-2b01-422b-a104-988a43742ba8.png
+click on the picture of the day
+[0.21015625, 0.5173611111111112, 0.65, 0.9576388888888889]
+Response: (0.20, 0.47)
+Incorrect
+
+Test 317/436
+test_data/web_6547e373-2b01-422b-a104-988a43742ba8.png
+swith language of current web page
+[0.01796875, 0.5590277777777778, 0.135546875, 0.5895833333333333]
+Response: (0.05, 0.49)
+Incorrect
+
+Test 318/436
+test_data/web_e402fd4e-8ee3-4e90-9f08-4e6b8d223022.png
+play the media of the day
+[0.21015625, 0.4847222222222222, 0.65, 0.925]
+Response: (0.29, 0.79)
+Correct
+
+Test 319/436
+test_data/web_e402fd4e-8ee3-4e90-9f08-4e6b8d223022.png
+copy url link of the media
+[0.631640625, 0.94375, 0.653125, 0.9756944444444444]
+Response: (0.10, 0.87)
+Incorrect
+
+Test 320/436
+test_data/web_e402fd4e-8ee3-4e90-9f08-4e6b8d223022.png
+download current webpage to local as pdf file
+[0.0265625, 0.6159722222222223, 0.123828125, 0.6444444444444445]
+Response: (0.08, 0.88)
+Incorrect
+
+Test 321/436
+test_data/web_dc5cf80d-74c4-475e-928f-ee6b7ef254a1.png
+open wikispecies
+[0.619140625, 0.7104166666666667, 0.689453125, 0.7354166666666667]
+Response: (0.70, 0.71)
+Incorrect
+
+Test 322/436
+test_data/web_dc5cf80d-74c4-475e-928f-ee6b7ef254a1.png
+open mediawiki
+[0.784375, 0.5743055555555555, 0.826171875, 0.6555555555555556]
+Response: (0.92, 0.66)
+Incorrect
+
+Test 323/436
+test_data/web_6f93090a-81f6-489e-bb35-1a2838b18c01.png
+input word to search in wikidata
+[0.7578125, 0.08055555555555556, 0.9265625, 0.12777777777777777]
+Response: (0.94, 0.07)
+Incorrect
+
+Test 324/436
+test_data/web_6f93090a-81f6-489e-bb35-1a2838b18c01.png
+switch language of current page
+[0.571875, 0.004861111111111111, 0.64140625, 0.044444444444444446]
+Response: (0.04, 0.02)
+Incorrect
+
+Test 325/436
+test_data/web_c95137ce-a84e-4c7c-9845-65157033e501.png
+open the picture of earth
+[0.613671875, 0.2951388888888889, 0.77890625, 0.5951388888888889]
+Response: (0.70, 0.59)
+Correct
+
+Test 326/436
+test_data/web_c95137ce-a84e-4c7c-9845-65157033e501.png
+open wikidata artcle upon earth item
+[0.680859375, 0.6159722222222223, 0.742578125, 0.6444444444444445]
+Response: (0.70, 0.68)
+Incorrect
+
+Test 327/436
+test_data/web_7cbc6d11-a481-45ae-a054-d89301abd2d6.png
+enter username to create wikidate account
+[0.197265625, 0.3993055555555556, 0.476953125, 0.45416666666666666]
+Response: (0.27, 0.39)
+Incorrect
+
+Test 328/436
+test_data/web_7cbc6d11-a481-45ae-a054-d89301abd2d6.png
+switch page's language into chinese
+[0.875, 0.2722222222222222, 0.90390625, 0.2986111111111111]
+Response: (0.21, 0.31)
+Incorrect
+
+Test 329/436
+test_data/web_5a0b5ec0-be59-484d-a291-4965a9de9c76.png
+refresh captcha picture
+[0.20703125, 0.525, 0.468359375, 0.6902777777777778]
+Response: (0.50, 0.65)
+Incorrect
+
+Test 330/436
+test_data/web_5a0b5ec0-be59-484d-a291-4965a9de9c76.png
+enter text showing in capcha
+[0.29140625, 0.6916666666666667, 0.383203125, 0.7256944444444444]
+Response: (0.25, 0.57)
+Incorrect
+
+Test 331/436
+test_data/web_3357799b-92ed-4ce8-8c01-452993f9397b.png
+open page about arsene wenger
+[0.305078125, 0.7618055555555555, 0.64453125, 0.8645833333333334]
+Response: (0.43, 0.81)
+Correct
+
+Test 332/436
+test_data/web_3357799b-92ed-4ce8-8c01-452993f9397b.png
+open page about arsenal f.c.
+[0.305078125, 0.6555555555555556, 0.6421875, 0.7583333333333333]
+Response: (0.39, 0.74)
+Correct
+
+Test 333/436
+test_data/web_2bda50e8-15d0-473a-a8cb-bd0777963756.png
+open talk page
+[0.309375, 0.24027777777777778, 0.34453125, 0.27847222222222223]
+Response: (0.71, 0.35)
+Incorrect
+
+Test 334/436
+test_data/web_2bda50e8-15d0-473a-a8cb-bd0777963756.png
+unflod items about players
+[0.039453125, 0.8472222222222222, 0.125, 0.8909722222222223]
+Response: (0.07, 0.86)
+Correct
+
+Test 335/436
+test_data/web_2bda50e8-15d0-473a-a8cb-bd0777963756.png
+open the logo of arsenal f.c 
+[0.70234375, 0.51875, 0.893359375, 0.8965277777777778]
+Response: (0.84, 0.52)
+Correct
+
+Test 336/436
+test_data/web_cd72d06c-67ca-4ed8-b550-dcf4b33e5381.png
+add language
+[0.2453125, 0.7805555555555556, 0.4203125, 0.8638888888888889]
+Response: (0.34, 0.79)
+Correct
+
+Test 337/436
+test_data/web_cd72d06c-67ca-4ed8-b550-dcf4b33e5381.png
+open options page
+[0.931640625, 0.8013888888888889, 0.959375, 0.8451388888888889]
+Response: (0.01, 0.02)
+Incorrect
+
+Test 338/436
+test_data/web_41a4c02b-d68f-48a0-9ea1-a5a20d2ddf3c.png
+show cloth color for current season
+[0.7375, 0.8090277777777778, 0.87109375, 0.8736111111111111]
+Response: (0.92, 0.89)
+Incorrect
+
+Test 339/436
+test_data/web_41a4c02b-d68f-48a0-9ea1-a5a20d2ddf3c.png
+open article about mikel arteta
+[0.727734375, 0.35, 0.80234375, 0.3840277777777778]
+Response: (0.72, 0.56)
+Incorrect
+
+Test 340/436
+test_data/web_41a4c02b-d68f-48a0-9ea1-a5a20d2ddf3c.png
+open pic of home colours
+[0.66171875, 0.5229166666666667, 0.740625, 0.7659722222222223]
+Response: (0.72, 0.82)
+Incorrect
+
+Test 341/436
+test_data/web_be6a7bf9-9411-430f-a685-e97c75f44310.png
+show helps for how to edit wikipedia page information
+[0.04921875, 0.7180555555555556, 0.1421875, 0.7465277777777778]
+Response: (0.04, 0.01)
+Incorrect
+
+Test 342/436
+test_data/web_be6a7bf9-9411-430f-a685-e97c75f44310.png
+open options
+[0.937109375, 0.30277777777777776, 0.957421875, 0.34652777777777777]
+Response: (0.00, 0.00)
+Incorrect
+
+Test 343/436
+test_data/web_dfacd48d-d2c2-492f-b94c-41e6a34ea99f.png
+show the picture of gloden trophy owned by ansenal
+[0.785546875, 0.35208333333333336, 0.951953125, 0.7451388888888889]
+Response: (0.87, 0.02)
+Incorrect
+
+Test 344/436
+test_data/web_dfacd48d-d2c2-492f-b94c-41e6a34ea99f.png
+enter the wikipedia page of champions league
+[0.390625, 0.90625, 0.51640625, 0.9381944444444444]
+Response: (0.50, 0.97)
+Incorrect
+
+Test 345/436
+test_data/web_c334b955-9eb9-48c2-998b-9f6cb87bbb8f.png
+open the picture of core vitoria diehl
+[0.41953125, 0.3861111111111111, 0.53359375, 0.66875]
+Response: (0.50, 0.62)
+Correct
+
+Test 346/436
+test_data/web_c334b955-9eb9-48c2-998b-9f6cb87bbb8f.png
+show the image of queen lili's uokalani of hawaii
+[0.829296875, 0.36736111111111114, 0.948828125, 0.6402777777777777]
+Response: (0.92, 0.65)
+Incorrect
+
+Test 347/436
+test_data/web_c334b955-9eb9-48c2-998b-9f6cb87bbb8f.png
+enter wikipedia page of core victoria deihl
+[0.150390625, 0.3840277777777778, 0.27734375, 0.4201388888888889]
+Response: (0.50, 0.65)
+Incorrect
+
+Test 348/436
+test_data/web_b2914206-25b0-46b6-a829-c1208293c3ac.png
+go to homepage of wikipedia
+[0.07890625, 0.004861111111111111, 0.2625, 0.09236111111111112]
+Response: (0.06, 0.11)
+Incorrect
+
+Test 349/436
+test_data/web_b2914206-25b0-46b6-a829-c1208293c3ac.png
+open image of george frideric handel
+[0.051171875, 0.5263888888888889, 0.187890625, 0.7729166666666667]
+Response: (0.10, 0.57)
+Correct
+
+Test 350/436
+test_data/web_b2914206-25b0-46b6-a829-c1208293c3ac.png
+input keyword to seaching 
+[0.322265625, 0.027777777777777776, 0.698828125, 0.08055555555555556]
+Response: (0.72, 0.98)
+Incorrect
+
+Test 351/436
+test_data/web_22e2b9c7-0140-47aa-8e14-cfd883f3baaf.png
+open 'retrospect and prospect in computer-based translation' paper
+[0.39609375, 0.3333333333333333, 0.71953125, 0.3715277777777778]
+Response: (0.49, 0.36)
+Correct
+
+Test 352/436
+test_data/web_22e2b9c7-0140-47aa-8e14-cfd883f3baaf.png
+open linked pdf file
+[0.92109375, 0.5756944444444444, 0.937109375, 0.625]
+Response: (0.90, 0.02)
+Incorrect
+
+Test 353/436
+test_data/web_0092e09d-acc7-4ced-8871-47cb05a0a554.png
+let website remmeber account information for no logging in the next year
+[0.040625, 0.5527777777777778, 0.062890625, 0.5923611111111111]
+Response: (0.04, 0.62)
+Incorrect
+
+Test 354/436
+test_data/web_0092e09d-acc7-4ced-8871-47cb05a0a554.png
+enter username
+[0.04375, 0.3576388888888889, 0.324609375, 0.40694444444444444]
+Response: (0.04, 0.37)
+Incorrect
+
+Test 355/436
+test_data/web_0092e09d-acc7-4ced-8871-47cb05a0a554.png
+log in
+[0.041796875, 0.6159722222222223, 0.3265625, 0.6708333333333333]
+Response: (0.03, 0.66)
+Incorrect
+
+Test 356/436
+test_data/web_3261789b-bffc-4bfb-94d3-fe2a787e3f3f.png
+forget password
+[0.1078125, 0.75625, 0.25703125, 0.7826388888888889]
+Response: (0.93, 0.84)
+Incorrect
+
+Test 357/436
+test_data/web_3261789b-bffc-4bfb-94d3-fe2a787e3f3f.png
+create account
+[0.776953125, 0.03680555555555556, 0.87734375, 0.07083333333333333]
+Response: (0.85, 0.06)
+Correct
+
+Test 358/436
+test_data/web_3ff7abbd-cbd0-4396-ae77-94e34376edb5.png
+enter pape of 1,000 palaces to see before you die
+[0.313671875, 0.6895833333333333, 0.396875, 0.7201388888888889]
+Response: (0.14, 0.74)
+Incorrect
+
+Test 359/436
+test_data/web_3ff7abbd-cbd0-4396-ae77-94e34376edb5.png
+open the page of bougainville island
+[0.67890625, 0.7881944444444444, 0.799609375, 0.81875]
+Response: (0.71, 0.81)
+Correct
+
+Test 360/436
+test_data/web_dd6b5395-a2da-4d88-a971-c2815899f84d.png
+return the homepage of mediawiki
+[0.07890625, 0.004861111111111111, 0.26875, 0.09791666666666667]
+Response: (0.97, 0.95)
+Incorrect
+
+Test 361/436
+test_data/web_dd6b5395-a2da-4d88-a971-c2815899f84d.png
+switch to the discussion page
+[0.120703125, 0.29097222222222224, 0.1984375, 0.3229166666666667]
+Response: (0.06, 0.36)
+Incorrect
+
+Test 362/436
+test_data/web_dd6b5395-a2da-4d88-a971-c2815899f84d.png
+open the photo of the wikidemiad hackathon 2023
+[0.639453125, 0.40694444444444444, 0.954296875, 0.5451388888888888]
+Response: (0.79, 0.46)
+Correct
+
+Test 363/436
+test_data/web_d920add5-4b0d-41a6-8de8-2b2b443e7524.png
+download all mediawiki data
+[0.44296875, 0.8263888888888888, 0.770703125, 0.8833333333333333]
+Response: (0.06, 0.37)
+Incorrect
+
+Test 364/436
+test_data/web_55f5dbd0-ac88-4695-a7a8-03f52a7464cb.png
+open wikipedia page of football
+[0.423828125, 0.5055555555555555, 0.4734375, 0.5326388888888889]
+Response: (0.20, 0.27)
+Incorrect
+
+Test 365/436
+test_data/web_55f5dbd0-ac88-4695-a7a8-03f52a7464cb.png
+open options
+[0.039453125, 0.03333333333333333, 0.06484375, 0.07847222222222222]
+Response: (0.95, 0.03)
+Incorrect
+
+Test 366/436
+test_data/web_e32af83c-f30c-4104-82b3-d5b9a84ad5ee.png
+portugal 
+[0.659375, 0.4388888888888889, 0.7234375, 0.48194444444444445]
+Response: (0.71, 0.62)
+Incorrect
+
+Test 367/436
+test_data/web_e32af83c-f30c-4104-82b3-d5b9a84ad5ee.png
+enter page of norway
+[0.3328125, 0.7506944444444444, 0.40390625, 0.7902777777777777]
+Response: (0.27, 0.94)
+Incorrect
+
+Test 368/436
+test_data/web_e32af83c-f30c-4104-82b3-d5b9a84ad5ee.png
+open arsenal f.c. records and player records webpage
+[0.61953125, 0.13402777777777777, 0.8640625, 0.1701388888888889]
+Response: (0.72, 0.09)
+Incorrect
+
+Test 369/436
+test_data/web_43eca188-6adf-4bfe-bb49-56dad5717132.png
+open keras
+[0.277734375, 0.015277777777777777, 0.32421875, 0.04236111111111111]
+Response: (0.35, 0.07)
+Incorrect
+
+Test 370/436
+test_data/web_43eca188-6adf-4bfe-bb49-56dad5717132.png
+open orable data mining page
+[0.63203125, 0.6583333333333333, 0.762890625, 0.6875]
+Response: (0.70, 0.69)
+Incorrect
+
+Test 371/436
+test_data/web_14c5f53b-8827-4d97-9adb-b3cbc4d6116a.png
+open image of book named machined learning
+[0.726171875, 0.29444444444444445, 0.925, 0.8229166666666666]
+Response: (0.79, 0.32)
+Correct
+
+Test 372/436
+test_data/web_14c5f53b-8827-4d97-9adb-b3cbc4d6116a.png
+enter page of peer-reviewd scientific journal
+[0.4046875, 0.23680555555555555, 0.61171875, 0.2659722222222222]
+Response: (0.47, 0.37)
+Incorrect
+
+Test 373/436
+test_data/web_14c5f53b-8827-4d97-9adb-b3cbc4d6116a.png
+hide sidebar
+[0.12890625, 0.09097222222222222, 0.16953125, 0.1326388888888889]
+Response: (0.10, 0.16)
+Incorrect
+
+Test 374/436
+test_data/web_1d69cea6-1be7-4314-8bf1-5cd8e1939911.png
+change page lanuage
+[0.825390625, 0.02013888888888889, 0.958203125, 0.06319444444444444]
+Response: (0.75, 0.89)
+Incorrect
+
+Test 375/436
+test_data/web_1d69cea6-1be7-4314-8bf1-5cd8e1939911.png
+jump to website of 'induction of decision trees'
+[0.4078125, 0.8770833333333333, 0.60859375, 0.9041666666666667]
+Response: (0.50, 0.87)
+Incorrect
+
+Test 376/436
+test_data/web_1d69cea6-1be7-4314-8bf1-5cd8e1939911.png
+switch to talk column
+[0.3125, 0.09791666666666667, 0.34375, 0.13402777777777777]
+Response: (0.06, 0.02)
+Incorrect
+
+Test 377/436
+test_data/web_45f9eb11-1663-440f-9e73-78a34793ac95.png
+play the video
+[0.7375, 0.15763888888888888, 0.9546875, 0.37430555555555556]
+Response: (0.97, 0.12)
+Incorrect
+
+Test 378/436
+test_data/web_45f9eb11-1663-440f-9e73-78a34793ac95.png
+go to page of darpa
+[0.739453125, 0.38125, 0.78203125, 0.40625]
+Response: (0.95, 0.52)
+Incorrect
+
+Test 379/436
+test_data/web_45f9eb11-1663-440f-9e73-78a34793ac95.png
+get citation of current webpage
+[0.01640625, 0.8604166666666667, 0.168359375, 0.9486111111111111]
+Response: (0.04, 0.95)
+Incorrect
+
+Test 380/436
+test_data/web_df804fb9-f96e-425e-b1a3-fe8f6810a1de.png
+delete the 'article' tag for searching
+[0.181640625, 0.46041666666666664, 0.203125, 0.4986111111111111]
+Response: (0.07, 0.42)
+Incorrect
+
+Test 381/436
+test_data/web_df804fb9-f96e-425e-b1a3-fe8f6810a1de.png
+input keyword to seaching 
+[0.040625, 0.3215277777777778, 0.626953125, 0.3701388888888889]
+Response: (0.02, 0.51)
+Incorrect
+
+Test 382/436
+test_data/web_df804fb9-f96e-425e-b1a3-fe8f6810a1de.png
+clear input bar
+[0.627734375, 0.3194444444444444, 0.658203125, 0.3770833333333333]
+Response: (0.01, 0.04)
+Incorrect
+
+Test 383/436
+test_data/web_147f0485-994a-4176-bd82-88d81ab8607a.png
+search in all area
+[0.35078125, 0.525, 0.37109375, 0.5666666666666667]
+Response: (0.32, 0.47)
+Incorrect
+
+Test 384/436
+test_data/web_147f0485-994a-4176-bd82-88d81ab8607a.png
+show advanced searching options
+[0.04375, 0.3861111111111111, 0.725390625, 0.43819444444444444]
+Response: (0.07, 0.35)
+Incorrect
+
+Test 385/436
+test_data/web_147f0485-994a-4176-bd82-88d81ab8607a.png
+display the next 20 searching results
+[0.1671875, 0.8569444444444444, 0.216796875, 0.8930555555555556]
+Response: (0.95, 0.32)
+Incorrect
+
+Test 386/436
+test_data/web_78657904-325d-4ee2-b319-36dc1abe7e54.png
+open page of gpt-2
+[0.4109375, 0.7520833333333333, 0.457421875, 0.7756944444444445]
+Response: (0.32, 0.02)
+Incorrect
+
+Test 387/436
+test_data/web_78657904-325d-4ee2-b319-36dc1abe7e54.png
+show content of reinforcement learning
+[0.9109375, 0.2875, 0.947265625, 0.31666666666666665]
+Response: (0.89, 0.27)
+Incorrect
+
+Test 388/436
+test_data/web_78657904-325d-4ee2-b319-36dc1abe7e54.png
+enter page of machine learning translator
+[0.416015625, 0.6548611111111111, 0.599609375, 0.675]
+Response: (0.50, 0.43)
+Incorrect
+
+Test 389/436
+test_data/web_14087e07-67d9-494e-bdbf-16ed67985a72.png
+open the shopping cart
+[0.926953125, 0.10902777777777778, 0.95625, 0.15069444444444444]
+Response: (0.25, 0.96)
+Incorrect
+
+Test 390/436
+test_data/web_14087e07-67d9-494e-bdbf-16ed67985a72.png
+open home& kitchen part
+[0.522265625, 0.2076388888888889, 0.627734375, 0.25833333333333336]
+Response: (0.55, 0.70)
+Incorrect
+
+Test 391/436
+test_data/web_14087e07-67d9-494e-bdbf-16ed67985a72.png
+enter detail page of icecream
+[0.80546875, 0.6694444444444444, 0.98203125, 0.9756944444444444]
+Response: (0.90, 0.95)
+Correct
+
+Test 392/436
+test_data/web_bd7a1ecb-e3e7-4a79-ba7e-91ae27a861ba.png
+close the pop-up window
+[0.96953125, 0.17708333333333334, 0.9859375, 0.21666666666666667]
+Response: (0.94, 0.03)
+Incorrect
+
+Test 393/436
+test_data/web_bd7a1ecb-e3e7-4a79-ba7e-91ae27a861ba.png
+modify product specifications
+[0.933203125, 0.5506944444444445, 0.95234375, 0.5833333333333334]
+Response: (0.72, 0.96)
+Incorrect
+
+Test 394/436
+test_data/web_bd7a1ecb-e3e7-4a79-ba7e-91ae27a861ba.png
+check the detailed information of the first product in the cart
+[0.74765625, 0.42430555555555555, 0.9484375, 0.4840277777777778]
+Response: (0.29, 0.96)
+Incorrect
+
+Test 395/436
+test_data/web_e103f2b7-edaf-4acc-8b85-6cfb0b9c024c.png
+close the alart window
+[0.68359375, 0.1, 0.701953125, 0.1326388888888889]
+Response: (0.70, 0.09)
+Incorrect
+
+Test 396/436
+test_data/web_e103f2b7-edaf-4acc-8b85-6cfb0b9c024c.png
+confirm leaving the shopping cart
+[0.38125, 0.24583333333333332, 0.425, 0.2965277777777778]
+Response: (0.75, 0.02)
+Incorrect
+
+Test 397/436
+test_data/web_e103f2b7-edaf-4acc-8b85-6cfb0b9c024c.png
+cancel leaving
+[0.31015625, 0.24791666666666667, 0.375, 0.28958333333333336]
+Response: (0.75, 0.03)
+Incorrect
+
+Test 398/436
+test_data/web_6e4b8b0d-45fe-4d2a-864a-782e08ae8d21.png
+remove the first item from the shopping cart
+[0.08828125, 0.6625, 0.192578125, 0.7076388888888889]
+Response: (0.04, 0.76)
+Incorrect
+
+Test 399/436
+test_data/web_6e4b8b0d-45fe-4d2a-864a-782e08ae8d21.png
+adjust the quantity of the first item
+[0.59765625, 0.3506944444444444, 0.64453125, 0.4131944444444444]
+Response: (0.03, 0.67)
+Incorrect
+
+Test 400/436
+test_data/web_8a36314e-03d8-422d-920b-d3a93c12e6a5.png
+input my first name
+[0.146875, 0.5631944444444444, 0.532421875, 0.6104166666666667]
+Response: (0.21, 0.55)
+Incorrect
+
+Test 401/436
+test_data/web_8a36314e-03d8-422d-920b-d3a93c12e6a5.png
+sign in the website
+[0.9390625, 0.03125, 0.98359375, 0.07083333333333333]
+Response: (0.95, 0.04)
+Correct
+
+Test 402/436
+test_data/web_8a36314e-03d8-422d-920b-d3a93c12e6a5.png
+show more information of the items in cart
+[0.68359375, 0.4388888888888889, 0.957421875, 0.5020833333333333]
+Response: (0.76, 0.65)
+Incorrect
+
+Test 403/436
+test_data/web_8a36314e-03d8-422d-920b-d3a93c12e6a5.png
+view help for email account
+[0.512109375, 0.3861111111111111, 0.53125, 0.4222222222222222]
+Response: (0.05, 0.49)
+Incorrect
+
+Test 404/436
+test_data/web_8998df3c-ece5-4f78-9f34-8b6ef91b1ddb.png
+add the creole seasoning to favorites
+[0.450390625, 0.6819444444444445, 0.473828125, 0.7145833333333333]
+Response: (0.40, 0.57)
+Incorrect
+
+Test 405/436
+test_data/web_8998df3c-ece5-4f78-9f34-8b6ef91b1ddb.png
+add the cocowhip light to cart
+[0.672265625, 0.6965277777777777, 0.76875, 0.7451388888888889]
+Response: (0.64, 0.65)
+Incorrect
+
+Test 406/436
+test_data/web_8998df3c-ece5-4f78-9f34-8b6ef91b1ddb.png
+remove the first item from the comparison
+[0.627734375, 0.18055555555555555, 0.644140625, 0.21458333333333332]
+Response: (0.29, 0.66)
+Incorrect
+
+Test 407/436
+test_data/web_98d5a92a-e7d5-4fa6-8c36-83dc78c3fce6.png
+show password
+[0.1359375, 0.6854166666666667, 0.14921875, 0.7125]
+Response: (0.20, 0.74)
+Incorrect
+
+Test 408/436
+test_data/web_98d5a92a-e7d5-4fa6-8c36-83dc78c3fce6.png
+forget my password
+[0.233203125, 0.76875, 0.365234375, 0.8013888888888889]
+Response: (0.32, 0.83)
+Incorrect
+
+Test 409/436
+test_data/web_98d5a92a-e7d5-4fa6-8c36-83dc78c3fce6.png
+create an account
+[0.511328125, 0.5201388888888889, 0.650390625, 0.5777777777777777]
+Response: (0.50, 0.48)
+Incorrect
+
+Test 410/436
+test_data/web_5d555c28-7e2a-4380-ad9e-4eeba9cc2383.png
+input my password
+[0.1390625, 0.5916666666666667, 0.487109375, 0.6423611111111112]
+Response: (0.20, 0.79)
+Incorrect
+
+Test 411/436
+test_data/web_5d555c28-7e2a-4380-ad9e-4eeba9cc2383.png
+sign in the website
+[0.137109375, 0.7576388888888889, 0.20703125, 0.8097222222222222]
+Response: (0.21, 0.78)
+Incorrect
+
+Test 412/436
+test_data/web_2450df5d-6082-4941-8fe5-ee61df8e7021.png
+check the information of the first product
+[0.18984375, 0.29791666666666666, 0.374609375, 0.8138888888888889]
+Response: (0.02, 0.51)
+Incorrect
+
+Test 413/436
+test_data/web_2450df5d-6082-4941-8fe5-ee61df8e7021.png
+check the price changes for the first item
+[0.3296875, 0.9090277777777778, 0.348046875, 0.9361111111111111]
+Response: (0.04, 0.59)
+Incorrect
+
+Test 414/436
+test_data/web_2450df5d-6082-4941-8fe5-ee61df8e7021.png
+change the sorting method
+[0.831640625, 0.14652777777777778, 0.9453125, 0.19166666666666668]
+Response: (0.97, 0.19)
+Incorrect
+
+Test 415/436
+test_data/web_2450df5d-6082-4941-8fe5-ee61df8e7021.png
+switch the product arrangement to a 2*2 grid
+[0.2453125, 0.1375, 0.280859375, 0.19305555555555556]
+Response: (0.75, 0.97)
+Incorrect
+
+Test 416/436
+test_data/web_2d77202a-c8d6-4908-9def-c4635e5c4d3d.png
+show next image of this item
+[0.511328125, 0.8152777777777778, 0.546875, 0.9236111111111112]
+Response: (0.95, 0.04)
+Incorrect
+
+Test 417/436
+test_data/web_2d77202a-c8d6-4908-9def-c4635e5c4d3d.png
+add this item to wish list
+[0.5953125, 0.7291666666666666, 0.692578125, 0.7652777777777777]
+Response: (0.65, 0.95)
+Incorrect
+
+Test 418/436
+test_data/web_8c185a73-f24a-4548-851f-eae8962b2649.png
+close the image window
+[0.933203125, 0.00625, 0.997265625, 0.11458333333333333]
+Response: (0.94, 0.97)
+Incorrect
+
+Test 419/436
+test_data/web_8c185a73-f24a-4548-851f-eae8962b2649.png
+check the second image
+[0.079296875, 0.8569444444444444, 0.154296875, 0.99375]
+Response: (0.07, 0.92)
+Incorrect
+
+Test 420/436
+test_data/web_2e26b177-1a3c-4e1d-b961-a584add014b7.png
+check computers and accessories items 
+[0.327734375, 0.6298611111111111, 0.524609375, 0.6854166666666667]
+Response: (0.29, 0.99)
+Incorrect
+
+Test 421/436
+test_data/web_2e26b177-1a3c-4e1d-b961-a584add014b7.png
+sign in the website
+[0.4859375, 0.015277777777777777, 0.5296875, 0.04791666666666667]
+Response: (0.50, 0.02)
+Correct
+
+Test 422/436
+test_data/web_889c379a-7f36-4aad-9516-b09773cd6b84.png
+search the products about football
+[0.8875, 0.10486111111111111, 0.91875, 0.15208333333333332]
+Response: (0.79, 0.22)
+Incorrect
+
+Test 423/436
+test_data/web_889c379a-7f36-4aad-9516-b09773cd6b84.png
+check the information about the first item
+[0.028515625, 0.58125, 0.1765625, 0.9451388888888889]
+Response: (0.04, 0.67)
+Correct
+
+Test 424/436
+test_data/web_0437294c-e652-4bc4-acbf-f0c4cf3759ba.png
+view the product photos
+[0.093359375, 0.4131944444444444, 0.48671875, 0.9972222222222222]
+Response: (0.71, 0.02)
+Incorrect
+
+Test 425/436
+test_data/web_0437294c-e652-4bc4-acbf-f0c4cf3759ba.png
+change the purchase quantity of the product
+[0.5953125, 0.48541666666666666, 0.637890625, 0.5645833333333333]
+Response: (0.70, 0.16)
+Incorrect
+
+Test 426/436
+test_data/web_0437294c-e652-4bc4-acbf-f0c4cf3759ba.png
+add this item to compare
+[0.696875, 0.6243055555555556, 0.793359375, 0.6604166666666667]
+Response: (0.72, 0.78)
+Incorrect
+
+Test 427/436
+test_data/web_29f17af5-5e60-41a0-8a0c-36a991a0a19d.png
+rate this product with four stars
+[0.240234375, 0.2743055555555556, 0.25234375, 0.3125]
+Response: (0.20, 0.31)
+Incorrect
+
+Test 428/436
+test_data/web_29f17af5-5e60-41a0-8a0c-36a991a0a19d.png
+provide a review for the current product
+[0.144140625, 0.5506944444444445, 0.46171875, 0.6826388888888889]
+Response: (0.15, 0.78)
+Incorrect
+
+Test 429/436
+test_data/web_29f17af5-5e60-41a0-8a0c-36a991a0a19d.png
+submit my review
+[0.144140625, 0.7506944444444444, 0.259765625, 0.7993055555555556]
+Response: (0.15, 0.78)
+Correct
+
+Test 430/436
+test_data/web_c307580d-6e2e-4ffb-bb0d-3e156ec524e3.png
+check the privacy and cookie policy
+[0.0140625, 0.8048611111111111, 0.155078125, 0.8375]
+Response: (0.07, 0.82)
+Correct
+
+Test 431/436
+test_data/web_c307580d-6e2e-4ffb-bb0d-3e156ec524e3.png
+subscribe to feedback on this item
+[0.896484375, 0.8083333333333333, 0.9796875, 0.8534722222222222]
+Response: (0.95, 0.82)
+Correct
+
+Test 432/436
+test_data/web_b5c8e65b-1d1e-4fad-8064-a3b7119d1eaa.png
+go to the next page
+[0.503125, 0.009722222222222222, 0.534375, 0.06041666666666667]
+Response: (0.50, 0.02)
+Incorrect
+
+Test 433/436
+test_data/web_b5c8e65b-1d1e-4fad-8064-a3b7119d1eaa.png
+go to the second page
+[0.477734375, 0.027777777777777776, 0.48671875, 0.04791666666666667]
+Response: (0.50, 0.04)
+Incorrect
+
+Test 434/436
+test_data/web_ecf42851-30ce-46ce-91d0-8dec02cfd8b7.png
+go to the next page
+[0.501171875, 0.8388888888888889, 0.532421875, 0.8909722222222223]
+Response: (0.02, 0.99)
+Incorrect
+
+Test 435/436
+test_data/web_3b0ad239-da6b-4f6f-8f12-f674dc90ff33.png
+view the details of the item
+[0.01640625, 0.7652777777777777, 0.093359375, 0.8138888888888889]
+Response: (0.05, 0.67)
+Incorrect
+
+Test 436/436
+test_data/web_3b0ad239-da6b-4f6f-8f12-f674dc90ff33.png
+view the previous photo
+[0.036328125, 0.05138888888888889, 0.069921875, 0.14305555555555555]
+Response: (0.05, 0.61)
+Incorrect
+
+Accuracy: 0.14220183486238533
