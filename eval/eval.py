@@ -6,6 +6,7 @@ from peft import AutoPeftModelForCausalLM
 import json
 from PIL import Image, ImageDraw
 import wandb
+import time
 torch.manual_seed(1234)
 
 COORDINATE_PROMPT = 'In this UI screenshot, what is the position of the element corresponding to the command \"{command}\" (with point)?'
@@ -13,12 +14,20 @@ COORDINATE_PROMPT = 'In this UI screenshot, what is the position of the element 
 PARTITION_PROMPT = 'In this UI screenshot, what is the partition of the element corresponding to the command \"{command}\" (with quadrant number)?'
 
 MODEL_DIRECTORY = "./output_qwen/{model_name}"
-MODEL = "k_1_model"
+MODEL = "k_2_model"
+K = 2
+
+TEST_DATA_PATH = "./json_data/{data_name}.json"
+TEST_DATA = "SeeClick_test_split"
+
+
 
 def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
     acc = 0
     imgs = []
+    total_time = 0
     for i, data in enumerate(test_data):
+        
         print(f"Test {i+1}/{len(test_data)}")
         image = data['image']
         command = data['command']
@@ -37,6 +46,7 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
         partition_imgs = []
         history = None
         partitions = []
+        time_start = time.time()
         try:
             for j in range(k):
                 query = tokenizer.from_list_format([
@@ -79,6 +89,8 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
 
             x = float(response.split(",")[0].split("(")[1])
             y = float(response.split(",")[1].split(")")[0])
+            time_end = time.time()
+            total_time += time_end - time_start
 
             for partition in partitions[::-1]:
                 if partition == 1:
@@ -118,14 +130,15 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
             print("Invalid response")
             print()
             continue
-        wandb.log({"step": i+1, "num_correct": acc})
+        wandb.log({"step": i+1, "num_correct": acc, "time": time_end - time_start})
 
+    wandb.log({"average_inference_time": total_time / len(test_data)})
     return acc / len(test_data)
 
 
 if __name__ == '__main__':
     # init wandb
-    wandb.init(project=MODEL + "_eval")
+    wandb.init(project="ReVL_eval", name = MODEL + "-" + TEST_DATA)
 
     model = AutoPeftModelForCausalLM.from_pretrained(
     MODEL_DIRECTORY.format(model_name=MODEL),
@@ -143,9 +156,10 @@ if __name__ == '__main__':
     )
     tokenizer.pad_token_id = tokenizer.eod_id
 
-    with open("./json_data/screenspot_web_test.json", "r") as f:
+    with open(TEST_DATA_PATH.format(data_name=TEST_DATA), 'r') as f:
         test_data = json.load(f)
 
-    acc = eval(model, tokenizer, test_data, visualize=True, k = 2, keep_context=False)
+    acc = eval(model, tokenizer, test_data, visualize=True, k = K, keep_context=False)
+    wandb.log({"accuracy": acc})
     print(f"Accuracy: {acc}")
     

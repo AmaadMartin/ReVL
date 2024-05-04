@@ -27,9 +27,6 @@ if __name__ == '__main__':
         coordinate_item['id'] = f"identity_{i}_{K}"
         json_elements.append(coordinate_item)
 
-    # Convert the json_elements list to a JSON string
-    json_string = json.dumps(json_elements)
-
     # Write the JSON string to a file
     with open(f'small_{FILE_NAME}.json', 'w', encoding='utf-8') as file:
         json.dump(json_elements, file, ensure_ascii=False, indent=4)

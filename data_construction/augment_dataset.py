@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from PIL import Image
 
-df = pd.read_json("../json_data/seeclick_web_train.json")
+df = pd.read_json("../json_data/k_0_data.json")
 
 image_names = set(
     os.listdir("../train_data")
