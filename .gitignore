@@ -1,3 +1,6 @@
 env/
 train_data/
 test_data/
+.vscode/
+.cache/
+poster/

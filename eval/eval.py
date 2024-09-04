@@ -14,8 +14,9 @@ COORDINATE_PROMPT = 'In this UI screenshot, what is the position of the element 
 PARTITION_PROMPT = 'In this UI screenshot, what is the partition of the element corresponding to the command \"{command}\" (with quadrant number)?'
 
 MODEL_DIRECTORY = "./output_qwen/{model_name}"
-MODEL = "k_2_model"
+MODEL = "k_2_context_model"
 K = 2
+CONTEXT = True
 
 TEST_DATA_PATH = "./json_data/{data_name}.json"
 TEST_DATA = "SeeClick_test_split"
@@ -44,18 +45,14 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
             original_width, original_height = img.size
         
         partition_imgs = []
-        history = None
         partitions = []
+        images = [image]
         time_start = time.time()
         try:
             for j in range(k):
-                query = tokenizer.from_list_format([
-                    {'image': image},
-                    {'text': PARTITION_PROMPT.format(command=command)},
-                ])
-                response, history = model.chat(tokenizer, query=query, history=history)
-                if not keep_context:
-                    history = None
+                query = tokenizer.from_list_format(([{ 'image': context_image } for context_image in images] if keep_context else [{'image': image}]) + 
+                [{'text': PARTITION_PROMPT.format(command=command)}])
+                response, _ = model.chat(tokenizer, query=query, history=None)
                 print("Partition Response:", response)
 
                 # parse partition from response
@@ -73,16 +70,15 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
                         img = img.crop((0, height // 2, width // 2, height))
                     elif partition == 4:
                         img = img.crop((width // 2, height // 2, width, height))
-                    img.save("temp/partition.png")
-                    image = "temp/partition.png"
+                    img.save(f"temp/partition{j}.png")
+                    image = f"temp/partition{j}.png"
+                    images.append(image)
 
                     partition_imgs.append(wandb.Image(img, caption=f"{command}: {j + 1}, {partition}"))
 
-            query = tokenizer.from_list_format([
-                {'image': image},
-                {'text': COORDINATE_PROMPT.format(command=command)},
-            ])
-            response, _ = model.chat(tokenizer, query=query, history=history)
+            query = tokenizer.from_list_format(([{ 'image': context_image } for context_image in images] if keep_context else [{'image': image}]) + 
+            [{'text': COORDINATE_PROMPT.format(command=command)}])
+            response, _ = model.chat(tokenizer, query=query, history=None)
             print("Coordinate Response:", response)
         
             # parse point from response (point has format (x, y))
@@ -138,7 +134,7 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
 
 if __name__ == '__main__':
     # init wandb
-    wandb.init(project="ReVL_eval", name = MODEL + "-" + TEST_DATA)
+    wandb.init(project="ReVL_eval", name = MODEL + "-" + TEST_DATA + "-k" + str(K) + ("-context" if CONTEXT else ""))
 
     model = AutoPeftModelForCausalLM.from_pretrained(
     MODEL_DIRECTORY.format(model_name=MODEL),
@@ -159,7 +155,7 @@ if __name__ == '__main__':
     with open(TEST_DATA_PATH.format(data_name=TEST_DATA), 'r') as f:
         test_data = json.load(f)
 
-    acc = eval(model, tokenizer, test_data, visualize=True, k = K, keep_context=False)
+    acc = eval(model, tokenizer, test_data, visualize=True, k = K, keep_context=CONTEXT)
     wandb.log({"accuracy": acc})
     print(f"Accuracy: {acc}")
     
