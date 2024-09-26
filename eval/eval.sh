@@ -14,4 +14,4 @@ source env/bin/activate
 
 wandb login d73de72f4a6e9d226499f9c6da0c361a04336fde
 
-python eval.py
+python eval/eval.py

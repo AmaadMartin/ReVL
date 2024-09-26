@@ -23,17 +23,17 @@ import pandas as pd
 import argparse
 import csv
 import json
-from atomicwrites import atomic_write
+import tempfile
 
 IGNORE_TOKEN_ID = LabelSmoother.ignore_index
-CHECKPOINT = "output_qwen/checkpoint-1200"
+CHECKPOINT = False
 IMAGE_PATH = './data/images'
 CACHE_PATH = './data/cached_data.csv'
-K = 3
+K = 0
 WANDB_PROJECT = f"revl_k_{K}"
-CONTEXT = True
+CONTEXT = False
 DATA_SEPERATOR = "`"
-EVAL_DATA_PATH = "./json_data/seeclick_test_split_new_format.json"
+EVAL_DATA_PATH = "./data/json_data/small_seeclick_web_coordinate_test.json"
 STEPS_LEFT_PATH = "./finetune/state/steps_left.json"
 
 os.environ["WANDB_PROJECT"] = WANDB_PROJECT
@@ -197,7 +197,7 @@ def check_cache(id, step = None):
         df = pd.read_csv(f)
         index = df.index[df["id"] == id].tolist()
         if len(index) == 0:
-            return -1
+            return -1, None
         data_point = index[0]
 
         # check if length of datapoint's quadrants list is greater than the step
@@ -353,7 +353,10 @@ def tokenize_cached_data(data, data_dict, step, tokenizer, max_len, context = Fa
     data_dict[(data["id"], step)] = preprocess_tokens(new_source, tokenizer, max_len)
     return data_dict[(data["id"], step)]
 
-
+def atomic_write(filepath, content):
+    with tempfile.NamedTemporaryFile(delete=False, dir=os.path.dirname(filepath)) as temp:
+        temp.write(content.encode())  # Assuming content is a string
+    os.rename(temp.name, filepath)  # Atomic on POSIX systems
 
 class SupervisedDataset(Dataset):
     """Dataset for supervised fine-tuning."""
@@ -420,8 +423,7 @@ class LazySupervisedDataset(Dataset):
         # upload steps_left to STEPS_LEFT_PATH
 
         steps_left_json = json.dumps(self.steps_left)
-        with atomic_write(STEPS_LEFT_PATH, "w") as f:
-            f.write(steps_left_json)
+        atomic_write(STEPS_LEFT_PATH, steps_left_json)
 
         # print(str(i) + " " + str(step))
         if (i, step) in self.cached_data_dict:

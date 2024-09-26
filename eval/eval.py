@@ -13,14 +13,17 @@ COORDINATE_PROMPT = 'In this UI screenshot, what is the position of the element 
 
 PARTITION_PROMPT = 'In this UI screenshot, what is the partition of the element corresponding to the command \"{command}\" (with quadrant number)?'
 
-MODEL_DIRECTORY = "./output_qwen/{model_name}"
-MODEL = "k_2_context_model"
-K = 2
-CONTEXT = True
+MODEL_DIRECTORY = "./finetune/output/{model_name}"
+MODEL = "baseline_model"
+K = 0
+CONTEXT = False
 
-TEST_DATA_PATH = "./json_data/{data_name}.json"
-TEST_DATA = "SeeClick_test_split"
+TEST_DATA_PATH = "./data/json_data/{data_name}.json"
+TEST_DATA = "screenspot_bbox_test_text"
 
+IMAGE_PATH = "./data/images/{image_name}"
+
+TEMP_PATH = "./eval/temp/partition{num}.png"
 
 
 def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
@@ -30,14 +33,14 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
     for i, data in enumerate(test_data):
         
         print(f"Test {i+1}/{len(test_data)}")
-        image = data['image']
-        command = data['command']
+        image = IMAGE_PATH.format(image_name=data['img_filename'])
+        command = data['instruction']
         bbox = data['bbox']
         print(image)
         print(command)
 
         # parse top, left, bottom, right from bbox string
-        bbox = [float(x) for x in bbox.replace("(", "").replace(")", "").split(",")]
+        # bbox = [float(x) for x in bbox.replace("(", "").replace(")", "").split(",")]
         print(bbox)
 
         with Image.open(image) as img:
@@ -52,6 +55,7 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
             for j in range(k):
                 query = tokenizer.from_list_format(([{ 'image': context_image } for context_image in images] if keep_context else [{'image': image}]) + 
                 [{'text': PARTITION_PROMPT.format(command=command)}])
+                print("Query:", query)
                 response, _ = model.chat(tokenizer, query=query, history=None)
                 print("Partition Response:", response)
 
@@ -70,14 +74,15 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
                         img = img.crop((0, height // 2, width // 2, height))
                     elif partition == 4:
                         img = img.crop((width // 2, height // 2, width, height))
-                    img.save(f"temp/partition{j}.png")
-                    image = f"temp/partition{j}.png"
+                    img.save(TEMP_PATH.format(num=j))
+                    image = TEMP_PATH.format(num=j)
                     images.append(image)
 
                     partition_imgs.append(wandb.Image(img, caption=f"{command}: {j + 1}, {partition}"))
 
             query = tokenizer.from_list_format(([{ 'image': context_image } for context_image in images] if keep_context else [{'image': image}]) + 
             [{'text': COORDINATE_PROMPT.format(command=command)}])
+            print("Query:", query)
             response, _ = model.chat(tokenizer, query=query, history=None)
             print("Coordinate Response:", response)
         
@@ -122,8 +127,8 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
                 imgs.append(wandb.Image(img, caption=command))
                 wandb.log({"images": imgs + partition_imgs})
                 imgs = []
-        except:
-            print("Invalid response")
+        except Exception as e:
+            print("Error trying to run inference:", e)
             print()
             continue
         wandb.log({"step": i+1, "num_correct": acc, "time": time_end - time_start})

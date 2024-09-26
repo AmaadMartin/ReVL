@@ -12,6 +12,7 @@ MODEL="Qwen/Qwen-VL-Chat" #"Qwen/Qwen-VL-Chat"/"Qwen/Qwen-VL"  Set the path if y
 # ATTENTION: specify the path to your training data, which should be a json file consisting of a list of conversations.
 # See the section for finetuning in README for more information.
 DATA="json_data/small_seeclick_train_data_unaugmented.json"
+OUT="finetune/output"
 
 DISTRIBUTED_ARGS="
     --nproc_per_node $GPUS_PER_NODE \
@@ -37,7 +38,7 @@ torchrun $DISTRIBUTED_ARGS finetune.py \
     --data_path $DATA \
     --bf16 False \
     --fix_vit True \
-    --output_dir output_qwen \
+    --output_dir $OUT \
     --num_train_epochs 5 \
     --per_device_train_batch_size 2 \
     --per_device_eval_batch_size 1 \

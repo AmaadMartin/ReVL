@@ -4,3 +4,12 @@ test_data/
 .vscode/
 .cache/
 poster/
+data/images
+finetune/output/*
+!finetune/output/.gitkeep 
+output_qwen/
+wandb/
+eval/temp/
+finetune/state/steps_left.json
+finetune/training.out
+hugging_face/push.out
