@@ -1,4 +1,7 @@
 env/
+SeeReAct/env
+SeeReAct/test.ipynb
+SeeReAct/.env
 train_data/
 test_data/
 .vscode/
