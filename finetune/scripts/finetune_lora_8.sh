@@ -1,6 +1,7 @@
 #!/bin/bash
 export CUDA_DEVICE_MAX_CONNECTIONS=1
 DIR=`pwd`
+export TRANSFORMERS_CACHE=/ocean/projects/cis240092p/amartin1/.cache/huggingface/hub
 
 GPUS_PER_NODE=8
 NNODES=1
@@ -8,14 +9,15 @@ NODE_RANK=0
 MASTER_ADDR=localhost
 MASTER_PORT=6001
 
-K=0
-EPOCHS=5
-TRAINING_EPOCHS=$((EPOCHS * (K + 1)))
+K=3
+EPOCHS=1
+# TRAINING_EPOCHS=$((EPOCHS * (K + 1)))
+TRAINING_EPOCHS=1
 
 MODEL="Qwen/Qwen-VL-Chat" #"Qwen/Qwen-VL-Chat"/"Qwen/Qwen-VL"  Set the path if you do not want to load from huggingface directly
 # ATTENTION: specify the path to your training data, which should be a json file consisting of a list of conversations.
 # See the section for finetuning in README for more information.
-DATA="data/json_data/small_seeclick_web_coordinate_train.json"
+DATA="data/json_data/SeeClick_model_train_data.json"
 OUT="finetune/output"
 
 DISTRIBUTED_ARGS="
@@ -48,9 +50,9 @@ torchrun $DISTRIBUTED_ARGS finetune/finetune.py \
     --per_device_eval_batch_size 1 \
     --gradient_accumulation_steps 8 \
     --evaluation_strategy "steps" \
-    --eval_steps 60 \
+    --eval_steps 1200 \
     --save_strategy "steps" \
-    --save_steps 60 \
+    --save_steps 250 \
     --save_total_limit 10 \
     --learning_rate 1e-5 \
     --weight_decay 0.1 \

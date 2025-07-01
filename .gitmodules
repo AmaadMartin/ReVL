@@ -1,0 +1,3 @@
+[submodule "finetune/Qwen2-VL-Finetune"]
+	path = finetune/Qwen2-VL-Finetune
+	url = https://github.com/2U1/Qwen2-VL-Finetune

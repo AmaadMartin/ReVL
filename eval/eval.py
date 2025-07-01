@@ -7,6 +7,7 @@ import json
 from PIL import Image, ImageDraw
 import wandb
 import time
+import argparse
 torch.manual_seed(1234)
 
 COORDINATE_PROMPT = 'In this UI screenshot, what is the position of the element corresponding to the command \"{command}\" (with point)?'
@@ -14,17 +15,52 @@ COORDINATE_PROMPT = 'In this UI screenshot, what is the position of the element 
 PARTITION_PROMPT = 'In this UI screenshot, what is the partition of the element corresponding to the command \"{command}\" (with quadrant number)?'
 
 MODEL_DIRECTORY = "./finetune/output/{model_name}"
-MODEL = "baseline_model"
-K = 0
-CONTEXT = False
+MODEL = "base_experiment_out"
+K = 3
+CONTEXT = True
 
 TEST_DATA_PATH = "./data/json_data/{data_name}.json"
-TEST_DATA = "screenspot_bbox_test_text"
+TEST_DATA = "screenspot_bbox_test"
 
 IMAGE_PATH = "./data/images/{image_name}"
 
+# TEMP_PATH = "./eval/temp/partition{num}.png"
 TEMP_PATH = "./eval/temp/partition{num}.png"
 
+def config() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Run end-to-end evaluation on the benchmark"
+    )
+
+    parser.add_argument(
+        "--data",
+        type=str,
+        default=TEST_DATA,
+        help="The dataset to evaluate on",
+    )
+
+    parser.add_argument(
+        "--model",
+        type=str,
+        default=MODEL,
+        help="The model to evaluate",
+    )
+
+    parser.add_argument(
+        "--k",
+        type=int,
+        default=K,
+        help="The number of partitions to use",
+    )
+
+    parser.add_argument(
+        "--context",
+        type=bool,
+        default=CONTEXT,
+        help="Whether to keep context images",
+    )
+
+    return parser.parse_args()
 
 def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
     acc = 0
@@ -34,13 +70,11 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
         
         print(f"Test {i+1}/{len(test_data)}")
         image = IMAGE_PATH.format(image_name=data['img_filename'])
+
         command = data['instruction']
         bbox = data['bbox']
         print(image)
         print(command)
-
-        # parse top, left, bottom, right from bbox string
-        # bbox = [float(x) for x in bbox.replace("(", "").replace(")", "").split(",")]
         print(bbox)
 
         with Image.open(image) as img:
@@ -51,12 +85,15 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
         partitions = []
         images = [image]
         time_start = time.time()
+        history = None
         try:
             for j in range(k):
-                query = tokenizer.from_list_format(([{ 'image': context_image } for context_image in images] if keep_context else [{'image': image}]) + 
-                [{'text': PARTITION_PROMPT.format(command=command)}])
+                query = tokenizer.from_list_format([{'image': image}, {'text': PARTITION_PROMPT.format(command=command)}])
                 print("Query:", query)
-                response, _ = model.chat(tokenizer, query=query, history=None)
+                if keep_context:
+                    response, history = model.chat(tokenizer, query=query, history=history)
+                else:
+                    response, _ = model.chat(tokenizer, query=query, history=None)
                 print("Partition Response:", response)
 
                 # parse partition from response
@@ -74,22 +111,27 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
                         img = img.crop((0, height // 2, width // 2, height))
                     elif partition == 4:
                         img = img.crop((width // 2, height // 2, width, height))
-                    img.save(TEMP_PATH.format(num=j))
-                    image = TEMP_PATH.format(num=j)
+
+                    new_image = TEMP_PATH.format(num=j+1)
+                    img.save(new_image)
+                    image = new_image
                     images.append(image)
 
                     partition_imgs.append(wandb.Image(img, caption=f"{command}: {j + 1}, {partition}"))
 
-            query = tokenizer.from_list_format(([{ 'image': context_image } for context_image in images] if keep_context else [{'image': image}]) + 
-            [{'text': COORDINATE_PROMPT.format(command=command)}])
+            query = tokenizer.from_list_format([{'image': image}, {'text': COORDINATE_PROMPT.format(command=command)}])
             print("Query:", query)
-            response, _ = model.chat(tokenizer, query=query, history=None)
+            if keep_context:
+                response, history = model.chat(tokenizer, query=query, history=history)
+            else:
+                response, _ = model.chat(tokenizer, query=query, history=None)
             print("Coordinate Response:", response)
         
             # parse point from response (point has format (x, y))
 
             x = float(response.split(",")[0].split("(")[1])
             y = float(response.split(",")[1].split(")")[0])
+            print("point:", x, y)
             time_end = time.time()
             total_time += time_end - time_start
 
@@ -138,7 +180,12 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
 
 
 if __name__ == '__main__':
-    # init wandb
+    args = config()
+    MODEL = args.model
+    TEST_DATA = args.data
+    K = args.k
+    CONTEXT = args.context
+    
     wandb.init(project="ReVL_eval", name = MODEL + "-" + TEST_DATA + "-k" + str(K) + ("-context" if CONTEXT else ""))
 
     model = AutoPeftModelForCausalLM.from_pretrained(
@@ -157,9 +204,8 @@ if __name__ == '__main__':
     )
     tokenizer.pad_token_id = tokenizer.eod_id
 
-    with open(TEST_DATA_PATH.format(data_name=TEST_DATA), 'r') as f:
+    with open(TEST_DATA_PATH.format (data_name=TEST_DATA), 'r') as f:
         test_data = json.load(f)
-
     acc = eval(model, tokenizer, test_data, visualize=True, k = K, keep_context=CONTEXT)
     wandb.log({"accuracy": acc})
     print(f"Accuracy: {acc}")
