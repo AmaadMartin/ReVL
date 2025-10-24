@@ -3,15 +3,15 @@ import random
 import argparse
 
 WEB_SEECLICK_DATASET_PATH = '/ocean/projects/cis240092p/amartin1/ReVL/data/datasets/web/seeclick_web/seeclick_web.json'
-WEB_IMAGES_PATH = '/ocean/projects/cis240092p/amartin1/ReVL/data/images/web/seeclick_web_images/images/'
+WEB_IMAGES_PATH = '/ocean/projects/cis240092p/amartin1/ReVL/data/images/web/seeclick_web_images/images/cpfs01/user/chengkanzhi/seeclick_web_imgs/'
 
 MOBILE_RICOSCA_DATASET_PATH = '/ocean/projects/cis240092p/amartin1/ReVL/data/datasets/mobile/ricosca/ricosca.json'
 MOBILE_SCREEN_CAPTIONING_DATASET_PATH = '/ocean/projects/cis240092p/amartin1/ReVL/data/datasets/mobile/screen_captioning/screen_captioning.json'
 MOBILE_WIDGET_CAPTIONING_DATASET_PATH = '/ocean/projects/cis240092p/amartin1/ReVL/data/datasets/mobile/widget_captioning/widget_captioning.json'
-MOBILE_IMAGES_PATH = '/ocean/projects/cis240092p/amartin1/ReVL/data/images/mobile/RICO/images/'
+MOBILE_IMAGES_PATH = '/ocean/projects/cis240092p/amartin1/ReVL/data/images/mobile/RICO/images/combined/'
 
 GENERAL_LLAVA_DATASET_PATH = '/ocean/projects/cis240092p/amartin1/ReVL/data/datasets/general/llava-instruct-150k/llava-instruct-150k.json'
-GENERAL_IMAGES_PATH = '/ocean/projects/cis240092p/amartin1/ReVL/data/images/general/CC-3M/images/'
+GENERAL_IMAGES_PATH = '/ocean/projects/cis240092p/amartin1/ReVL/data/images/general/COCO/images/train2014/COCO_train2014_'
 
 ROLE_MAPPING = {
     "assistant": "gpt",
@@ -70,13 +70,14 @@ def process_web_text_to_point(data, count):
     for item in random.sample(data, count):
         image = WEB_IMAGES_PATH + item["img_filename"]
         for element in item.get("elements", []):
+            coordinates = bbox_to_point(element["bbox"])
             datapoint = {
                 "type": "text_to_point",
-                "images": [image],
+                "image": [image],
                 "quadrant_template": TEXT_TO_QUADRANT_PROMPT,
                 "point_template": TEXT_TO_POINT_PROMPT,
                 "prompt": element["instruction"],
-                "bbox": truncate_bbox(element["bbox"]),
+                "coordinates": coordinates,
             }
             datapoints.append(datapoint)
     return random.sample(datapoints, count)
@@ -85,13 +86,14 @@ def process_mobile_text_to_point(data, count):
     datapoints = []
     for item in random.sample(data, count):
         image = MOBILE_IMAGES_PATH + item["img_filename"]
+        coordinates = bbox_to_point(item["bbox"])
         datapoint = {
             "type": "text_to_point",
-            "images": [image],
+            "image": [image],
             "quadrant_template": TEXT_TO_QUADRANT_PROMPT,
             "point_template": TEXT_TO_POINT_PROMPT,
             "prompt": item["instruction"],
-            "bbox": truncate_bbox(item["bbox"]),
+            "coordinates": coordinates,
         }
         datapoints.append(datapoint)
     return random.sample(datapoints, count)
@@ -108,8 +110,8 @@ def process_web_text_to_bbox(data, count):
             ]
             datapoint = {
                 "type": "sft",
-                "images": [image],
-                "conversation": conversation,
+                "image": [image],
+                "conversations": conversation,
             }
             datapoints.append(datapoint)
     return random.sample(datapoints, count)
@@ -127,8 +129,8 @@ def process_mobile_text_to_bbox(data, count):
         
         datapoint = {
             "type": "sft",
-            "images": [image],
-            "conversation": conversation,
+            "image": [image],
+            "conversations": conversation,
         }
         datapoints.append(datapoint)
     return random.sample(datapoints, count)
@@ -148,8 +150,8 @@ def process_web_point_to_text(data, count):
             
             datapoint = {
                 "type": "sft",
-                "images": [image],
-                "conversation": conversation,
+                "image": [image],
+                "conversations": conversation,
             }
             datapoints.append(datapoint)
     return random.sample(datapoints, count)
@@ -168,8 +170,8 @@ def process_web_bbox_to_text(data, count):
             
             datapoint = {
                 "type": "sft",
-                "images": [image],
-                "conversation": conversation,
+                "image": [image],
+                "conversations": conversation,
             }
             datapoints.append(datapoint)
     return random.sample(datapoints, count)
@@ -186,8 +188,8 @@ def process_mobile_screen_captioning(data, count):
         
         datapoint = {
             "type": "sft",
-            "images": [image],
-            "conversation": conversation,
+            "image": [image],
+            "conversations": conversation,
         }
         datapoints.append(datapoint)
     return random.sample(datapoints, count)
@@ -205,8 +207,8 @@ def process_mobile_widget_captioning(data, count):
         
         datapoint = {
             "type": "sft",
-            "images": [image],
-            "conversation": conversation,
+            "image": [image],
+            "conversations": conversation,
         }
         datapoints.append(datapoint)
     return random.sample(datapoints, count)
@@ -220,10 +222,11 @@ def process_general_llava(data, count):
             role = ROLE_MAPPING[message["from"]]
             content = message["value"]
             conversation.append(create_conversation_message(role, content))
+        image = GENERAL_IMAGES_PATH + item["image"]
         datapoint = {
             "type": "sft",
-            "images": [item["image"]],
-            "conversation": conversation,
+            "image": [image],
+            "conversations": conversation,
         }
         datapoints.append(datapoint)
     return random.sample(datapoints, count)
@@ -265,6 +268,8 @@ def create_combined_dataset():
         combined_dataset += process_mobile_screen_captioning(screen_captioning_data, num_ui_summarization)
         combined_dataset += process_mobile_widget_captioning(widget_captioning_data, num_widget_captioning)
         combined_dataset += process_general_llava(llava_data, num_general_llava)
+        
+        random.shuffle(combined_dataset)
         
         file_name = f"/ocean/projects/cis240092p/amartin1/ReVL/data/datasets/ReVL/ReVL_{num_samples}_{num_web_text_to_point}_{num_web_text_to_bbox}_{num_point_to_text}_{num_bbox_to_text}_{num_mobile_text_to_point}_{num_mobile_text_to_bbox}_{num_ui_summarization}_{num_widget_captioning}_{num_general_llava}.json"
         with open(file_name, "w") as output_file:
