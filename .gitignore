@@ -33,3 +33,4 @@ eval/temp3
 eval/temp4
 hugging_face/push.out
 .qwen-venv/
+.qwen_py312/
