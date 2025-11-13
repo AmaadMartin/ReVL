@@ -5,9 +5,9 @@ DIR=`pwd`
 export CUDA_VISIBLE_DEVICES=0
 
 # Defaults (can be overridden via CLI args)
-MODEL="text_to_point"
-K="3"
-DATA="screenspot_bbox_test"
+MODEL="/ocean/projects/cis240092p/amartin1/ReVL/finetune/model_output/Qwen/Qwen2.5-VL-3B-Instruct_all_tasks_revl_1000%100_K1_20251024_032530"
+K="1"
+DATA="screenspot_web"
 CONTEXT="True"
 
 # Usage helper
@@ -37,11 +37,11 @@ done
 module load anaconda3
 module load cuda
 module load nvhpc
+module load gcc
+module load ffmpeg
 
-conda activate py310
+conda activate python312
 
-source env/bin/activate
+source /ocean/projects/cis240092p/amartin1/ReVL/.qwen_py312/bin/activate
 
-wandb login d73de72f4a6e9d226499f9c6da0c361a04336fde
-
-python /ocean/projects/cis240092p/amartin1/ReVL/eval/eval.py --data "$DATA" --model "$MODEL" --k "$K" --context "$CONTEXT"
+python /ocean/projects/cis240092p/amartin1/ReVL/eval/python_scripts/eval.py --data "$DATA" --model "$MODEL" --k "$K" --context "$CONTEXT"
