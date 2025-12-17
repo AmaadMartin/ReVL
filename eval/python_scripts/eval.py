@@ -8,9 +8,63 @@ import wandb
 import time
 import argparse
 import re
+from typing import List
 from qwen2_vl.model import Qwen2VLChat
 from qwen_vl_utils import process_vision_info
 torch.manual_seed(1234)
+
+def lines_demarcation(image: Image.Image) -> List[Image.Image]:
+    """Return a list containing the input image augmented with green lines
+    demarcating the vertical and horizontal midlines.
+
+    A vertical green line is drawn through the center column and a horizontal
+    green line through the center row.
+    """
+    if not isinstance(image, Image.Image):
+        raise TypeError("lines_demarcation expects a PIL.Image.Image")
+
+    width, height = image.size
+    center_x, center_y = width // 2, height // 2
+
+    augmented = image.copy()
+    draw = ImageDraw.Draw(augmented)
+
+    green = (0, 255, 0)
+    line_width = max(1, min(width, height) // 400 or 1)
+
+    # Vertical center line
+    draw.line([(center_x, 0), (center_x, height)], fill=green, width=line_width)
+    # Horizontal center line
+    draw.line([(0, center_y), (width, center_y)], fill=green, width=line_width)
+
+    return [augmented]
+
+
+def quadrants_demarcation(image: Image.Image) -> List[Image.Image]:
+    """Return the four quadrants of the image in graph-quadrant order.
+
+    Order:
+    1) Top-right, 2) Top-left, 3) Bottom-left, 4) Bottom-right
+    """
+    if not isinstance(image, Image.Image):
+        raise TypeError("quadrants_demarcation expects a PIL.Image.Image")
+
+    width, height = image.size
+    center_x, center_y = width // 2, height // 2
+
+    # Define crop boxes: (left, upper, right, lower)
+    top_right = image.crop((center_x, 0, width, center_y))
+    top_left = image.crop((0, 0, center_x, center_y))
+    bottom_left = image.crop((0, center_y, center_x, height))
+    bottom_right = image.crop((center_x, center_y, width, height))
+
+    return [top_right, top_left, bottom_left, bottom_right]
+
+DEMARCATION_MAP = {
+    "lines": lines_demarcation,
+    "quadrants": quadrants_demarcation,
+    "none": lambda x: [x]
+}
 
 COORDINATE_PROMPT = 'In this UI screenshot, what is the position of the element corresponding to the command \"{command}\" (with point)?'
 
@@ -20,20 +74,22 @@ MODEL_DIRECTORY = "{model_path}"
 MODEL = "base_experiment_out"
 K = 3
 CONTEXT = True
+RESOLUTION = "dynamic"
+DEMARCATION = "none"
 
 TEST_DATA_PATH = "/ocean/projects/cis240092p/amartin1/ReVL/data/datasets/benchmarks/screenspot/{data_name}.json"
 TEST_DATA = "screenspot_web"
 
 IMAGE_PATH = "/ocean/projects/cis240092p/amartin1/ReVL/data/images/benchmarks/screenspot/images/{image_name}"
 
-def generate_with_history(model, query, current_image, history=None, history_images=None):
+def generate_with_history(model, query, current_images, history=None, history_images=None):
     """
     Custom wrapper to support conversation history with Qwen2VLChat.
     
     Args:
         model: Qwen2VLChat model instance
         query: Text query string
-        current_image: PIL Image object for current query
+        current_images: List of PIL Image objects (or single PIL Image) for current query
         history: List of conversation history in format [{'from': 'human'/'gpt', 'value': str}, ...]
         history_images: List of PIL Image objects corresponding to each 'human' turn in history
     
@@ -54,10 +110,16 @@ def generate_with_history(model, query, current_image, history=None, history_ima
                 text_content = msg['value'].replace('<image>\n', '').replace('<image>', '')
                 # Add the corresponding image from history
                 if image_idx < len(history_images):
-                    content = [
-                        {'type': 'image', 'image': history_images[image_idx]},
-                        {'type': 'text', 'text': text_content}
-                    ]
+                    # Add images to content if history_images entry is a list or single item
+                    img_entry = history_images[image_idx]
+                    content = []
+                    if isinstance(img_entry, list):
+                        for img in img_entry:
+                             content.append({'type': 'image', 'image': img})
+                    else:
+                        content.append({'type': 'image', 'image': img_entry})
+                    
+                    content.append({'type': 'text', 'text': text_content})
                     image_idx += 1
                 else:
                     content = text_content
@@ -73,8 +135,15 @@ def generate_with_history(model, query, current_image, history=None, history_ima
             elif msg['from'] == 'gpt':
                 messages.append({'role': 'assistant', 'content': msg['value']})
     
-    # Add current query with image
-    content = [{'type': 'image', 'image': current_image}, {'type': 'text', 'text': query}]
+    # Add current query with image(s)
+    content = []
+    if isinstance(current_images, list):
+        for img in current_images:
+            content.append({'type': 'image', 'image': img})
+    else:
+         content.append({'type': 'image', 'image': current_images})
+    
+    content.append({'type': 'text', 'text': query})
     messages.append({'role': 'user', 'content': content})
     
     if model.verbose:
@@ -138,12 +207,30 @@ def config() -> argparse.Namespace:
         help="Whether to keep context images",
     )
 
+    parser.add_argument(
+        "--resolution",
+        type=str,
+        default=RESOLUTION,
+        choices=["dynamic", "static"],
+        help="Image resolution strategy: 'dynamic' or 'static' (mirrors finetuning behavior)",
+    )
+
+    parser.add_argument(
+        "--demarcation",
+        type=str,
+        default=DEMARCATION,
+        choices=list(DEMARCATION_MAP.keys()),
+        help="Demarcation strategy: 'none', 'lines', or 'quadrants'",
+    )
+
     return parser.parse_args()
 
-def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
+def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False, demarcation="none"):
     acc = 0
     imgs = []
     total_time = 0
+    demarcation_fn = DEMARCATION_MAP[demarcation]
+
     for i, data in enumerate(test_data):
         
         print(f"Test {i+1}/{len(test_data)}")
@@ -187,26 +274,42 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
                 query = PARTITION_PROMPT.format(command=command)
                 print("Query:", query)
                 
+                # Apply demarcation for this step
+                demarcated_images = demarcation_fn(current_image)
+
                 if keep_context:
                     # Generate with history
-                    response = generate_with_history(model, query, current_image, history=history, history_images=history_images)
+                    response = generate_with_history(model, query, demarcated_images, history=history, history_images=history_images)
                     # Add human message to history
-                    history.append({'from': 'human', 'value': f'<image>\n{query}'})
-                    # Add current image to history_images
-                    history_images.append(current_image.copy())
+                    # Prepend <image> for each image
+                    image_tokens = "".join(["<image>\n" for _ in demarcated_images])
+                    history.append({'from': 'human', 'value': f'{image_tokens}{query}'})
+                    # Add current image(s) to history_images
+                    history_images.append([img.copy() for img in demarcated_images])
+                    
                     # Add gpt response to history
                     history.append({'from': 'gpt', 'value': response})
                 else:
                     # Generate without history using PIL image
-                    response = generate_with_history(model, query, current_image, history=None, history_images=None)
+                    response = generate_with_history(model, query, demarcated_images, history=None, history_images=None)
                 
                 print("Partition Response:", response)
 
                 # parse partition from response
-                partition = int(response.split(" ")[-1])
+                try:
+                    partition = int(response.split(" ")[-1])
+                except ValueError:
+                    print(f"Failed to parse partition from response: {response}")
+                    partition = 0 # Default or handle error
+                
                 partitions.append(partition)
                 
-                # Get cropped image of the partition
+                # Update current_image for next step (for Lines, we accumulate lines)
+                if demarcation == "lines":
+                    # lines_demarcation returns 1 image
+                    current_image = demarcated_images[0]
+
+                # Get cropped image of the partition from the current_image
                 width, height = current_image.size
                 if partition == 1:
                     current_image = current_image.crop((width // 2, 0, width, height // 2))
@@ -222,18 +325,22 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
             query = COORDINATE_PROMPT.format(command=command)
             print("Query:", query)
             
+            # For final coordinate step, apply demarcation
+            demarcated_images = demarcation_fn(current_image)
+
             if keep_context:
                 # Generate final coordinate response with history
-                response = generate_with_history(model, query, current_image, history=history, history_images=history_images)
+                response = generate_with_history(model, query, demarcated_images, history=history, history_images=history_images)
                 # Add final human message to history
-                history.append({'from': 'human', 'value': f'<image>\n{query}'})
+                image_tokens = "".join(["<image>\n" for _ in demarcated_images])
+                history.append({'from': 'human', 'value': f'{image_tokens}{query}'})
                 # Add final image to history_images
-                history_images.append(current_image.copy())
+                history_images.append([img.copy() for img in demarcated_images])
                 # Add final gpt response to history (for completeness)
                 history.append({'from': 'gpt', 'value': response})
             else:
                 # Generate without history using PIL image
-                response = generate_with_history(model, query, current_image, history=None, history_images=None)
+                response = generate_with_history(model, query, demarcated_images, history=None, history_images=None)
             
             print("Coordinate Response:", response)
         
@@ -283,6 +390,9 @@ def eval(model, tokenizer, test_data, visualize=False, k=0, keep_context=False):
             original_image.close()
         except Exception as e:
             print("Error trying to run inference:", e)
+            # print traceback
+            import traceback
+            traceback.print_exc()
             print()
             continue
         wandb.log({"step": i+1, "num_correct": acc, "time": time_end - time_start})
@@ -297,8 +407,33 @@ if __name__ == '__main__':
     TEST_DATA = args.data
     K = args.k
     CONTEXT = args.context
+    RESOLUTION = args.resolution
+    DEMARCATION = args.demarcation
+
+    # Mirror finetuning resolution behavior:
+    # dynamic  -> max_pixels=50176, min_pixels=784
+    # static   -> 448x448 fixed resolution
+    if RESOLUTION.lower() == "dynamic":
+        max_pixels = 50176
+        min_pixels = 784
+    elif RESOLUTION.lower() == "static":
+        px = 448 * 448
+        max_pixels = px
+        min_pixels = px
+    else:
+        raise ValueError(f"Invalid resolution '{RESOLUTION}'. Use 'dynamic' or 'static'.")
     
-    wandb.init(project="ReVL_eval", name = MODEL + "-" + TEST_DATA + "-k" + str(K) + ("-context" if CONTEXT else ""))
+    wandb.init(
+        project="ReVL_eval",
+        name=MODEL
+        + "-"
+        + TEST_DATA
+        + "-k"
+        + str(K)
+        + ("-context" if CONTEXT else "")
+        + f"-res-{RESOLUTION}"
+        + f"-demarc-{DEMARCATION}",
+    )
 
 
     print(f"Loading HuggingFace model from {MODEL_DIRECTORY.format(model_path=MODEL)}")
@@ -309,13 +444,12 @@ if __name__ == '__main__':
         top_p=0.001,
         top_k=1,
         use_custom_prompt=True,
-        min_pixels=1280*28*28,
-        max_pixels=5120*28*28
+        min_pixels=min_pixels,
+        max_pixels=max_pixels,
     )
 
     with open(TEST_DATA_PATH.format (data_name=TEST_DATA), 'r') as f:
         test_data = json.load(f)
-    acc = eval(model, None, test_data, visualize=True, k = K, keep_context=CONTEXT)
+    acc = eval(model, None, test_data, visualize=True, k = K, keep_context=CONTEXT, demarcation=DEMARCATION)
     wandb.log({"accuracy": acc})
     print(f"Accuracy: {acc}")
-    

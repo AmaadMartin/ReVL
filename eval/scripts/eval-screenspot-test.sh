@@ -9,10 +9,12 @@ MODEL="/ocean/projects/cis240092p/amartin1/ReVL/finetune/model_output/Qwen/Qwen2
 K="1"
 DATA="screenspot_web"
 CONTEXT="True"
+RESOLUTION="dynamic"
+DEMARCATION="none"
 
 # Usage helper
 usage() {
-    echo "Usage: $0 [--model NAME|-m NAME] [--k K|-k K] [--data NAME|-d NAME] [--context True|False|-c True|False]"
+    echo "Usage: $0 [--model NAME|-m NAME] [--k K|-k K] [--data NAME|-d NAME] [--context True|False|-c True|False] [--resolution dynamic|static] [--demarcation none|lines|quadrants]"
     exit 1
 }
 
@@ -27,6 +29,10 @@ while [[ $# -gt 0 ]]; do
             DATA="$2"; shift 2 ;;
         -c|--context)
             CONTEXT="$2"; shift 2 ;;
+        --resolution)
+            RESOLUTION="$2"; shift 2 ;;
+        --demarcation)
+            DEMARCATION="$2"; shift 2 ;;
         -h|--help)
             usage ;;
         *)
@@ -44,4 +50,10 @@ conda activate python312
 
 source /ocean/projects/cis240092p/amartin1/ReVL/.qwen_py312/bin/activate
 
-python /ocean/projects/cis240092p/amartin1/ReVL/eval/python_scripts/eval.py --data "$DATA" --model "$MODEL" --k "$K" --context "$CONTEXT"
+python /ocean/projects/cis240092p/amartin1/ReVL/eval/python_scripts/eval.py \
+    --data "$DATA" \
+    --model "$MODEL" \
+    --k "$K" \
+    --context "$CONTEXT" \
+    --resolution "$RESOLUTION" \
+    --demarcation "$DEMARCATION"
